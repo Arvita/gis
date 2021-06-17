@@ -1,0 +1,8 @@
+[11-Jun-2021 13:32:30 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'Auth' not found in /home/arvm5443/public_html/gis/routes/web.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/arvm5443/public_html/gis/routes/web.php on line 20
+[11-Jun-2021 13:32:33 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'Auth' not found in /home/arvm5443/public_html/gis/routes/web.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/arvm5443/public_html/gis/routes/web.php on line 20
