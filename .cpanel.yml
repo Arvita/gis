@@ -1,5 +1,5 @@
 ---
 deployment:
 tasks:
-- export DEPLOYPATH=/home/usercpanel/public_html/epim-jti
+- export DEPLOYPATH=/home/usercpanel/public_html/gis
 - /bin/cp -r * $DEPLOYPATH
