@@ -5,6 +5,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
+use App\Http\Controllers\TanamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,10 @@ Route::post('/kelurahan/insert', [KelurahanController::class, 'insert']);
 Route::get('/kelurahan/edit/{id_kelurahan}', [KelurahanController::class, 'edit']);
 Route::post('/kelurahan/update/{id_kelurahan}', [KelurahanController::class, 'update']);
 Route::get('/kelurahan/delete/{id_kelurahan}', [KelurahanController::class, 'delete']);
+
+Route::get('/tanaman', [TanamanController::class, 'index'])->name('tanaman');
+Route::get('/tanaman/add', [TanamanController::class, 'add']);
+Route::post('/tanaman/store', [TanamanController::class, 'store']);
+Route::get('/tanaman/delete/{id_tanaman}', [TanamanController::class, 'deleteData']);
+Route::get('/tanaman/edit/{id_tanaman}', [TanamanController::class, 'detail']);
+Route::post('/tanaman/update/{id_tanaman}', [TanamanController::class, 'update']);

@@ -1,3 +1,51 @@
+{{-- @extends('layouts.app')
+
+
+
+@section('content')
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card">
+
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+
+
+                <div class="card-body">
+
+                    @if (session('status'))
+
+                        <div class="alert alert-success" role="alert">
+
+                            {{ session('status') }}
+
+                        </div>
+
+                    @endif
+
+
+
+                    {{ __('You are logged in!') }}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@endsection --}}
+
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -217,103 +265,125 @@
 
                             </div>
 
+                            @if (session('message'))
+
+                                <div class="alert alert-success mb-3" role="alert">{{ session('message') }}</div>
+
+                            @endif
+
                         </div>
 
                     </header>
 
                     <div class="container mt-n10">
 
-                        <form method="POST" action="/kecamatan/update/{{ $kecamatan->id_kecamatan }}">
+                        <div class="card mb-4">
 
-                            @csrf
+                            <div class="card-header">
 
-                            <div class="card mb-4">
+                                <a class="btn btn-primary btn-sm shadow-sm" href="/tanaman/add">
 
-                                <div></div>
+                                    Tambah Data Tanaman
 
-                                <div class="card-body">
+                                </a>
 
-                                    <div class="col-xl-12">
+                            </div>
 
-                                        <div class="row form-group">
+                            <div class="card-body">
 
-                                            <div class="col-lg-6">
+                                <div class="datatable">
 
-                                                <label class="small mb-1" for="namaKecamatan">Nama Kecamatan</label>
+                                    <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
 
-                                                <input class="form-control" id="namaKecamatan" name="namaKecamatan" value="{{ $kecamatan->nama_kecamatan }}" type="text" placeholder="Nama Kecamatan" />
+                                        <thead>
 
-                                                <small class="text-danger" role="alert">
+                                            <tr>
 
-                                                    @error('namaKecamatan')
+                                                <th class="text-center" width="50px">No.</th>
 
-                                                        {{ $message }}
+                                                <th>Nama Tanaman</th>
 
-                                                    @enderror
+                                                <th>Logo</th>
 
-                                                </small>
+                                                <th class="text-center" width="100px">Aksi</th>
 
-                                            </div>
+                                            </tr>
 
-                                            <div class="col-lg-6">
+                                        </thead>
 
-                                                <label class="small mb-1" for="warna">Warna Background Kecamatan (Hexcode)</label>
+                                        <tbody>
 
-                                                <input class="form-control" id="warna" name="warna" value="{{ $kecamatan->warna }}" type="text" placeholder="Masukkan Hexcode Warna" />
+                                            <?php $no = 1;?>
 
-                                                <small class="text-danger" role="alert">
+                                            @foreach ($tanaman as $data)
 
-                                                    @error('warna')
+                                                <tr>
 
-                                                        {{ $message }}
+                                                    <td class="text-center">{{ $no++ }}</td>
 
-                                                    @enderror
+                                                    <td>{{ $data->nama_tanaman }}</td>
 
-                                                </small>
+                                                    <td><img src="{{$data->logo}}" alt="" style="width:150px"></td>
+
+                                                    <td class="text-center">
+
+                                                        <a href="/tanaman/edit/{{ $data->id_tanaman }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit-2"></i></a>
+
+                                                        <button href="" onclick="confirm_modal('/tanaman/delete/{{ $data->id_tanaman }}')" data-toggle="modal" data-target="#modalDelete{{ $data->id_tanaman }}" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>
+
+                                                    </td>
+
+                                                </tr>
+
+                                            @endforeach
+
+                                        </tbody>
+
+                                    </table>
+
+                                    @foreach ($tanaman as $data)
+
+                                        <div class="modal fade" id="modalDelete{{ $data->id_tanaman }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+
+                                            <div class="modal-dialog " role="document">
+
+                                                <div class="modal-content">
+
+                                                    <div class="modal-header">
+
+                                                        <h5 class="modal-title" id="deleteModalLabel">Hapus Data Tanaman {{ $data->nama_tanaman }}</h5>
+
+                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+
+                                                            <span aria-hidden="true">×</span>
+
+                                                        </button>
+
+                                                    </div>
+
+                                                    <div class="modal-body">Apakah Anda yakin untuk menghapus data Tanaman {{ $data->nama_tanaman }}?</div>
+
+                                                    <div class="modal-footer">
+
+                                                        <button class="btn btn-primary" type="button" data-dismiss="modal">Batal</button>
+
+                                                        <a class="btn btn-danger" id="delete_link" type="button" href="/kelurahan/delete/{{ $data->id_tanaman }}">Hapus</a>
+
+                                                    </div>
+
+                                                </div>
 
                                             </div>
 
                                         </div>
 
-                                        <div class="form-group">
-
-                                            <div class="form-group">
-
-                                                <label class="small mb-1" for="geojson">Geo JSON</label>
-
-                                                <textarea class="form-control" id="geojson" name="geojson" type="text" rows="4" placeholder="Geo JSON">
-
-                                                    {{ $kecamatan->geojson }}
-
-                                                </textarea>
-
-                                                <small class="text-danger" role="alert">
-
-                                                    @error('geojson')
-
-                                                        {{ $message }}
-
-                                                    @enderror
-
-                                                </small>
-
-                                            </div>
-
-                                        </div>
-
-                                        <hr class="my-4" />
-
-                                        <button class="btn btn-primary" type="submit">Simpan</button>
-
-                                        <a class="btn btn-danger" href="javascript:history.go(-1)">Batal</a>
-
-                                    </div>
+                                    @endforeach
 
                                 </div>
 
                             </div>
 
-                        </form>
+                        </div>
 
                     </div>
 
@@ -370,6 +440,24 @@
         <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" crossorigin="anonymous"></script>
 
         <script src="{{ asset('admin') }}/assets/demo/date-range-picker-demo.js"></script>
+
+
+
+        <script type="text/javascript">
+
+            function confirm_modal(delete_url) {
+
+                $('#hapusModal').modal('show', {
+
+                    backdrop: 'static'
+
+                });
+
+                document.getElementById('delete_link').setAttribute('href', delete_url);
+
+            }
+
+        </script>
 
     </body>
 

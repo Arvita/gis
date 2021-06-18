@@ -223,7 +223,7 @@
 
                     <div class="container mt-n10">
 
-                        <form method="POST" action="/kecamatan/update/{{ $kecamatan->id_kecamatan }}">
+                        <form method="POST" action="/tanaman/store" enctype="multipart/form-data">
 
                             @csrf
 
@@ -239,13 +239,13 @@
 
                                             <div class="col-lg-6">
 
-                                                <label class="small mb-1" for="namaKecamatan">Nama Kecamatan</label>
+                                                <label class="small mb-1" for="namaTanaman">Nama Tanaman</label>
 
-                                                <input class="form-control" id="namaKecamatan" name="namaKecamatan" value="{{ $kecamatan->nama_kecamatan }}" type="text" placeholder="Nama Kecamatan" />
+                                                <input class="form-control" id="namaTanaman" name="namaTanaman" type="text" placeholder="Nama Tanaman" />
 
                                                 <small class="text-danger" role="alert">
 
-                                                    @error('namaKecamatan')
+                                                    @error('namaTanaman')
 
                                                         {{ $message }}
 
@@ -257,13 +257,13 @@
 
                                             <div class="col-lg-6">
 
-                                                <label class="small mb-1" for="warna">Warna Background Kecamatan (Hexcode)</label>
+                                                <label class="small mb-1" for="logo">Icon</label>
 
-                                                <input class="form-control" id="warna" name="warna" value="{{ $kecamatan->warna }}" type="text" placeholder="Masukkan Hexcode Warna" />
+                                                <input class="form-control" id="logo" name="logo" type="file"  />
 
                                                 <small class="text-danger" role="alert">
 
-                                                    @error('warna')
+                                                    @error('logo')
 
                                                         {{ $message }}
 
@@ -275,31 +275,7 @@
 
                                         </div>
 
-                                        <div class="form-group">
-
-                                            <div class="form-group">
-
-                                                <label class="small mb-1" for="geojson">Geo JSON</label>
-
-                                                <textarea class="form-control" id="geojson" name="geojson" type="text" rows="4" placeholder="Geo JSON">
-
-                                                    {{ $kecamatan->geojson }}
-
-                                                </textarea>
-
-                                                <small class="text-danger" role="alert">
-
-                                                    @error('geojson')
-
-                                                        {{ $message }}
-
-                                                    @enderror
-
-                                                </small>
-
-                                            </div>
-
-                                        </div>
+                                       
 
                                         <hr class="my-4" />
 

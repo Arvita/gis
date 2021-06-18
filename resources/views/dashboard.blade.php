@@ -103,6 +103,10 @@
                                 <div class="nav-link-icon"><i data-feather="home"></i></div>
                                 {{ __('Data Kelurahan') }}
                             </a>
+                            <a class="nav-link" href="/tanaman">
+                                <div class="nav-link-icon"><i data-feather="home"></i></div>
+                                {{ __('Data Tanaman') }}
+                            </a>
                         </div>
                     </div>
                     <div class="sidenav-footer">
