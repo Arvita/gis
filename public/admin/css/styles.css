@@ -19490,6 +19490,14 @@ body {
 }
 .page-header
     .page-header-content
+    .page-header-title
+    .page-header-icon
+    .feather {
+    height: 1.75rem;
+    width: 1.75rem;
+}
+.page-header
+    .page-header-content
     .page-header-contentUser
     .page-header-title
     .page-header-icon
@@ -19518,6 +19526,14 @@ body {
 }
 .page-header-compact .page-header-content .page-header-title {
     font-size: 1rem;
+}
+.page-header-compact
+    .page-header-content
+    .page-header-title
+    .page-header-icon
+    .feather {
+    height: 1rem;
+    width: 1rem;
 }
 .page-header-compact
     .page-header-content

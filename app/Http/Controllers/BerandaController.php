@@ -16,6 +16,7 @@ class BerandaController extends Controller
     {
         $data = [
             'kecamatan' => $this->BerandaModel->DataKecamatan(),
+            'kelurahan' => $this->BerandaModel->DataKelurahan(),
         ];
         return view('layouts.beranda', $data);
     }

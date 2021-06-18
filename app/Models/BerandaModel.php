@@ -12,4 +12,14 @@ class BerandaModel extends Model
     {
         return DB::table('kecamatan')->get();
     }
+
+    public function DataKelurahan()
+    {
+        return DB::table('kelurahan')->get();
+    }
+
+    public function DataTanaman()
+    {
+        return DB::table('tanaman')->get();
+    }
 }
