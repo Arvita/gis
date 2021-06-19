@@ -10,7 +10,7 @@
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
                             {{ __($title) }}
                         </h1>
-                        <div class="page-header-subtitle">Example dashboard overview and content summary</div>
+                        <div class="page-header-subtitle">Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember</div>
                     </div>
                     <div class="col-12 col-xl-auto mt-4">
                         <button class="btn btn-white p-3" id="reportrange">

@@ -7,10 +7,10 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="home"></i></div>
+                            <div class="page-header-icon"><i data-feather="feather"></i></div>
                             {{ __($title) }}
                         </h1>
-                        <div class="page-header-subtitle">Example dashboard overview and content summary</div>
+                        <div class="page-header-subtitle">Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember</div>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,8 @@
                             <tr>
                                 <th class="text-center" width="50px">No.</th>
                                 <th>Nama Tanaman</th>
-                                <th>Logo</th>
+                                <th width="150px">Logo</th>
+                                <th class="text-center" width="50px">Warna</th>
                                 <th class="text-center" width="100px">Aksi</th>
                             </tr>
                         </thead>
@@ -43,7 +44,8 @@
                                 <tr>
                                     <td class="text-center">{{ $no++ }}</td>
                                     <td>{{ $data->nama_tanaman }}</td>
-                                    <td><img src="{{$data->logo}}" alt="" style="width:150px"></td>
+                                    <td class="text-center"><img src="{{$data->logo}}" alt="" style="width:150px"></td>
+                                    <td style="background-color: {{ $data->warna }}"></td>
                                     <td class="text-center">
                                         <a href="/tanaman/edit/{{ $data->id_tanaman }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit-2"></i></a>
                                         <button href="" onclick="confirm_modal('/tanaman/delete/{{ $data->id_tanaman }}')" data-toggle="modal" data-target="#modalDelete{{ $data->id_tanaman }}" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>

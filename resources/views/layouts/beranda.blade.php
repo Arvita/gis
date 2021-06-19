@@ -58,15 +58,7 @@
                                             <div class="page-header-icon"><img class="page-header-logo" src="{{ asset('admin') }}/assets/img/logo_jember.png"></img></div>
                                             {{ __('Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember') }}
                                         </h1>
-                                        {{-- <div class="page-header-subtitle">Example dashboard overview and content summary</div> --}}
                                     </div>
-                                    {{-- <div class="col-12 col-xl-auto mt-4">
-                                        <button class="btn btn-white p-3" id="reportrange">
-                                            <i class="mr-2 text-primary" data-feather="calendar"></i>
-                                            <span></span>
-                                            <i class="ml-1" data-feather="chevron-down"></i>
-                                        </button>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -77,7 +69,12 @@
                                 <div class="card h-100">
                                     <div class="card-map h-100 d-flex flex-column justify-content-center">
                                         <div class="align-items-center">
-                                            <div id="map" style="width: 100%; height: 60vh;"></div>
+                                            <div id="map"></div>
+                                            <style>
+                                                #map { width: 100%; height: 60vh; }
+                                                .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+                                                .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+                                            </style>
                                             <script>
                                                 var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                                                     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
@@ -129,13 +126,12 @@
                                                 };
 
                                                 var overlayer = {
-                                                    "Kecamatan": vector_kecamatan
+                                                    "Kecamatan": vector_kecamatan,
                                                 };
 
                                                 L.control.layers(baseMaps, overlayer).addTo(map);
 // ########## KECAMATAN ########## //
 // ########## KELURAHAN ########## //
-// sementara, untuk melihat maps data kelurahan, uncomment line 138-165 
                                                 // var vector_kelurahan = L.layerGroup();
 
                                                 // @foreach ($kelurahan as $data)
@@ -147,7 +143,7 @@
                                                 //             weight: 1,
                                                 //         },
                                                 //     }).bindPopup("{{ $data->nama_kelurahan }}").addTo(vector_kelurahan);
-                                                // @endforeach                                           
+                                                // @endforeach                                       
 
                                                 // var map = L.map('map', {
                                                 //     center: [-8.264371593833262, 113.6321026467762],
@@ -164,8 +160,43 @@
                                                 // };
 
                                                 // L.control.layers(baseMaps, overlayer).addTo(map);
-// sementara, untuk melihat maps data kelurahan, uncomment line 138-165
 // ########## KELURAHAN ########## //
+// ########## LEGEND ########## //
+                                                function getColor(d) {
+                                                    return d == 'Padi' ? '#f4a100' :
+                                                            d == 'Jagung'  ? '#f76400' :
+                                                            d == 'Kedelai'  ? '#00ac69' :
+                                                                        '#000000';
+                                                }
+
+                                                var legend = L.control({position: 'bottomright'});
+                                                legend.onAdd = function (map) {
+                                                    var div = L.DomUtil.create('div', 'info legend'),
+                                                    grades = ['Padi', 'Jagung', 'Kedelai'],
+                                                    labels = [],
+                                                    from, to;
+
+                                                    // for (var i = 0; i < grades.length; i++) {
+                                                    //     from = grades[i];
+                                                    //     to = grades[i + 1];
+
+                                                    //     labels.push(
+                                                    //         '<i style="background:' + getColor(from + 1) + '"></i> ' +
+                                                    //         from + (to ? '&ndash;' + to : '+'));
+                                                    // }
+
+                                                    // ########## LEGEND MANUAL ########## //
+                                                    labels.push(
+                                                            '<i style="background:#f4a100' + '"></i> ' + 'Padi',
+                                                            '<i style="background:#f76400' + '"></i> ' + 'Jagung',
+                                                            '<i style="background:#00ac69' + '"></i> ' + 'Kedelai',);
+                                                    // ########## LEGEND MANUAL ########## //
+                                                    
+                                                    div.innerHTML = labels.join('<br>');
+                                                    return div;
+                                                };
+                                                legend.addTo(map);
+// ########## LEGEND ########## //
 
                                             </script>
                                         </div>
@@ -192,7 +223,7 @@
                                 </div>
                             </div>
                             <div class="col-xxl-3 col-lg-6">
-                                <div class="card bg-warning text-white mb-4">
+                                <div class="card bg-yellow text-white mb-4">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">

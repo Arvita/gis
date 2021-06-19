@@ -10,7 +10,7 @@
                             <div class="page-header-icon"><i data-feather="home"></i></div>
                             {{ __($title) }}
                         </h1>
-                        <div class="page-header-subtitle">Example dashboard overview and content summary</div>
+                        <div class="page-header-subtitle">Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember</div>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <div class="col-xl-12">
                         <div class="row form-group">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <label class="small mb-1" for="namaTanaman">Nama Tanaman</label>
                                 <input class="form-control" id="namaTanaman" name="namaTanaman" type="text" placeholder="Nama Tanaman" value="{{$tanaman->nama_tanaman}}"/>
                                 <small class="text-danger" role="alert">
@@ -33,7 +33,16 @@
                                     @enderror
                                 </small>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
+                                <label class="small mb-1" for="warna">Warna Background Kecamatan (Hexcode)</label>
+                                <input class="form-control" id="warna" name="warna" type="text" placeholder="Masukkan Hexcode Warna" value="{{$tanaman->warna}}"/>
+                                <small class="text-danger" role="alert">
+                                    @error('warna')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+                            </div>
+                            <div class="col-lg-4">
                                 <label class="small mb-1" for="logo">Icon</label>
                                 <input class="form-control" id="logo" name="logo" type="file"  />
                                 <small class="text-danger" role="alert">

@@ -29,6 +29,7 @@ class TanamanController extends Controller
     {
         $data = [
             'title' => 'Tambah Tanaman',
+            'warna' => 'Warna',
         ];
         return view('admin.tanaman.v_add', $data);
     }
@@ -36,9 +37,11 @@ class TanamanController extends Controller
     {
         Request()->validate([
             'namaTanaman' => 'required',
+            'warna' => 'required',
             'logo' => 'mimes:jpg,jpeg,png|max:2048',
         ], [
-            'namaTanaman.required' => 'Nama Wajib Diisi !!',
+            'namaTanaman.required' => 'Nama Tanaman wajib diisi',
+            'warna.required' => 'Warna wajib diisi',
         ]);
         $key =  Str::random(10);
         if (Request()->logo <> "") {
@@ -48,6 +51,7 @@ class TanamanController extends Controller
 
             $data = [
                 'nama_tanaman' => Request()->namaTanaman,
+                'warna' => Request()->warna,
                 'logo' => $filename,
                 "created_at" => Date("Y-m-d H:i:s")
             ];
@@ -55,6 +59,7 @@ class TanamanController extends Controller
         } else {
             $data = [
                 'nama_tanaman' => Request()->namaTanaman,
+                'warna' => Request()->warna,
                 'logo' => "",
                 "created_at" => Date("Y-m-d H:i:s")
             ];
@@ -66,6 +71,7 @@ class TanamanController extends Controller
     {
         $data = [
             'title' => 'Tanaman',
+            'warna' => 'Warna',
             'tanaman' => $this->TanamanModel->detail($id)
         ];
         return view('admin.tanaman.v_edit', $data);
@@ -74,9 +80,11 @@ class TanamanController extends Controller
     {
         Request()->validate([
             'namaTanaman' => 'required',
+            'warna' => 'required',
             'logo' => 'mimes:jpg,jpeg,png|max:2048',
         ], [
-            'namaTanaman.required' => 'Nama Wajib Diisi !!',
+            'namaTanaman.required' => 'Nama Tanaman wajib diisi',
+            'warna.required' => 'Warna wajib diisi',
         ]);
         $key =  Str::random(10);
         if (Request()->logo <> "") {
@@ -86,12 +94,14 @@ class TanamanController extends Controller
 
             $data = [
                 'nama_tanaman' => Request()->namaTanaman,
+                'warna' => Request()->warna,
                 'logo' => $filename,
             ];
             $this->TanamanModel->updateData($data, $id);
         } else {
             $data = [
                 'nama_tanaman' => Request()->namaTanaman,
+                'warna' => Request()->warna,
             ];
             $this->TanamanModel->updateData($data, $id);
         }
