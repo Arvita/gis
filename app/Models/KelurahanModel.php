@@ -13,6 +13,11 @@ class KelurahanModel extends Model
         return DB::table('kelurahan')->get();
     }
 
+    public function DataKecamatan()
+    {
+        return DB::table('kecamatan')->get();
+    }
+
     public function InsertData($data)
     {
         return DB::table('kelurahan')->insert($data);

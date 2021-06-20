@@ -102,39 +102,9 @@
                                                 });
 
 // ########## KECAMATAN ########## //
-                                                var vector_kecamatan = L.layerGroup();
+                                                // var vector_kecamatan = L.layerGroup();
 
-                                                @foreach ($kecamatan as $data)
-                                                    L.geoJSON(<?= $data->geojson ?>,{
-                                                        style : {
-                                                            color : 'black',
-                                                            fillColor : '{{ $data->warna }}',
-                                                            fillOpacity : 1.0,
-                                                            weight: 1,
-                                                        },
-                                                    }).bindPopup("{{ $data->nama_kecamatan }}").addTo(vector_kecamatan);
-                                                @endforeach                                           
-
-                                                var map = L.map('map', {
-                                                    center: [-8.264371593833262, 113.6321026467762],
-                                                    zoom: 10,
-                                                    layers: [peta1, vector_kecamatan]
-                                                });
-                                                
-                                                var baseMaps = {
-                                                    "Map": peta1,
-                                                };
-
-                                                var overlayer = {
-                                                    "Kecamatan": vector_kecamatan,
-                                                };
-
-                                                L.control.layers(baseMaps, overlayer).addTo(map);
-// ########## KECAMATAN ########## //
-// ########## KELURAHAN ########## //
-                                                // var vector_kelurahan = L.layerGroup();
-
-                                                // @foreach ($kelurahan as $data)
+                                                // @foreach ($kecamatan as $data)
                                                 //     L.geoJSON(<?= $data->geojson ?>,{
                                                 //         style : {
                                                 //             color : 'black',
@@ -142,13 +112,13 @@
                                                 //             fillOpacity : 1.0,
                                                 //             weight: 1,
                                                 //         },
-                                                //     }).bindPopup("{{ $data->nama_kelurahan }}").addTo(vector_kelurahan);
-                                                // @endforeach                                       
+                                                //     }).bindPopup("{{ $data->nama_kecamatan }}").addTo(vector_kecamatan);
+                                                // @endforeach                                           
 
                                                 // var map = L.map('map', {
                                                 //     center: [-8.264371593833262, 113.6321026467762],
                                                 //     zoom: 10,
-                                                //     layers: [peta1, vector_kelurahan]
+                                                //     layers: [peta1, vector_kecamatan]
                                                 // });
                                                 
                                                 // var baseMaps = {
@@ -156,10 +126,40 @@
                                                 // };
 
                                                 // var overlayer = {
-                                                //     "Kelurahan": vector_kelurahan
+                                                //     "Kecamatan": vector_kecamatan,
                                                 // };
 
                                                 // L.control.layers(baseMaps, overlayer).addTo(map);
+// ########## KECAMATAN ########## //
+// ########## KELURAHAN ########## //
+                                                var vector_kelurahan = L.layerGroup();
+
+                                                @foreach ($kelurahan as $data)
+                                                    L.geoJSON(<?= $data->geojson ?>,{
+                                                        style : {
+                                                            color : 'black',
+                                                            fillColor : '{{ $data->warna }}',
+                                                            fillOpacity : 1.0,
+                                                            weight: 1,
+                                                        },
+                                                    }).bindPopup("{{ $data->nama_kelurahan }}").addTo(vector_kelurahan);
+                                                @endforeach                                       
+
+                                                var map = L.map('map', {
+                                                    center: [-8.264371593833262, 113.6321026467762],
+                                                    zoom: 10,
+                                                    layers: [peta1, vector_kelurahan]
+                                                });
+                                                
+                                                var baseMaps = {
+                                                    "Map": peta1,
+                                                };
+
+                                                var overlayer = {
+                                                    "Kelurahan": vector_kelurahan
+                                                };
+
+                                                L.control.layers(baseMaps, overlayer).addTo(map);
 // ########## KELURAHAN ########## //
 // ########## LEGEND ########## //
                                                 function getColor(d) {

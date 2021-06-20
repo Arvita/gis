@@ -59,7 +59,7 @@
                             </a>
                             <div class="collapse" id="collapseDashboards" data-parent="#accordionSidenav">
                                 <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                                    <a class="nav-link" href="/dashboard">
+                                    <a class="nav-link" href="/home">
                                         {{ __('Dashboard') }}
                                     </a>
                                     <a class="nav-link" href="#!">

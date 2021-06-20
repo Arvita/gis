@@ -26,6 +26,7 @@ class KelurahanController extends Controller
     {
         $data = [
             'title' => 'Tambah Data Desa/Kelurahan Baru',
+            'kecamatan' => $this->KelurahanModel->DataKecamatan(),
         ];
         return view('admin.kelurahan.v_add', $data);
     }
@@ -61,6 +62,7 @@ class KelurahanController extends Controller
     {
         $data = [
             'title' => 'Edit Data Desa/Kelurahan',
+            'kecamatan' => $this->KelurahanModel->DataKecamatan(),
             'kelurahan' => $this->KelurahanModel->DetailData($id_kelurahan),
         ];
         return view('admin.kelurahan.v_edit', $data);
