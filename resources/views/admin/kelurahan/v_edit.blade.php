@@ -24,17 +24,29 @@
                 <div class="card-body">
                     <div class="col-xl-12">
                         <div class="row form-group">
-                            <div class="col-lg-6">
-                                <label class="small mb-1" for="namaKelurahan">Nama Kelurahan</label>
-                                <input class="form-control" id="namaKelurahan" name="namaKelurahan" value="{{ $kelurahan->nama_kelurahan }}" type="text" placeholder="Nama Kelurahan" />
+                            <div class="col-lg-4">
+                                <label class="small mb-1" for="id_kecamatan">Nama Kecamatan</label>
+                                <select class="form-control" id="id_kecamatan" name="id_kecamatan" aria-placeholder="">
+                                    <option class="mr-3" value="">{{ __('Nama Kecamatan') }}</option>
+                                        <option class="mr-3" value="">{{ __('Nama Kecamatan') }}</option>
+                                </select>
+                                <small class="text-danger" role="alert">
+                                    @error('id_kecamatan')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="small mb-1" for="namaKelurahan">Nama Desa/Kelurahan</label>
+                                <input class="form-control" id="namaKelurahan" name="namaKelurahan" value="{{ $kelurahan->nama_kelurahan }}" type="text" placeholder="Nama Desa/Kelurahan" />
                                 <small class="text-danger" role="alert">
                                     @error('namaKelurahan')
                                         {{ $message }}
                                     @enderror
                                 </small>
                             </div>
-                            <div class="col-lg-6">
-                                <label class="small mb-1" for="warna">Warna Background Kelurahan (Hexcode)</label>
+                            <div class="col-lg-4">
+                                <label class="small mb-1" for="warna">Warna Background Desa/Kelurahan (Hexcode)</label>
                                 <input class="form-control" id="warna" name="warna" value="{{ $kelurahan->warna }}" type="text" placeholder="Masukkan Hexcode Warna" />
                                 <small class="text-danger" role="alert">
                                     @error('warna')

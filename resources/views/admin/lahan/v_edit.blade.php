@@ -7,7 +7,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="home"></i></div>
+                            <div class="page-header-icon"><i data-feather="feather"></i></div>
                             {{ __($title) }}
                         </h1>
                         <div class="page-header-subtitle">Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember</div>
@@ -17,7 +17,7 @@
         </div>
     </header>
     <div class="container mt-n10">
-        <form method="POST" action="/kelurahan/insert">
+        <form method="POST" action="/lahan/update/{{ $lahan->id_lahan }}">
             @csrf
             <div class="card mb-4">
                 <div></div>
@@ -25,42 +25,34 @@
                     <div class="col-xl-12">
                         <div class="row form-group">
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="id_kecamatan">Nama Kecamatan</label>
-                                <select class="form-control" id="id_kecamatan" name="id_kecamatan" aria-placeholder="">
-                                    <option class="mr-3" value="">{{ __('Nama Kecamatan') }}</option>
-                                        <option class="mr-3" value="">{{ __('Nama Kecamatan') }}</option>
+                                <label class="small mb-1" for="id_kelurahan">Nama Desa/Kelurahan</label>
+                                <select class="form-control" id="id_kelurahan" name="id_kelurahan" aria-placeholder="">
+                                    <option class="mr-3" value="">{{ __('Nama Desa/Kelurahan') }}</option>
+                                        <option class="mr-3" value="">{{ __('Nama Desa/Kelurahan') }}</option>
                                 </select>
                                 <small class="text-danger" role="alert">
-                                    @error('id_kecamatan')
+                                    @error('id_kelurahan')
                                         {{ $message }}
                                     @enderror
                                 </small>
                             </div>
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="namaKelurahan">Nama Desa/Kelurahan</label>
-                                <input class="form-control" id="namaKelurahan" name="namaKelurahan" type="text" placeholder="Nama Desa/Kelurahan" />
+                                <label class="small mb-1" for="id_tanaman">Nama Tanaman</label>
+                                <select class="form-control" id="id_tanaman" name="id_tanaman" aria-placeholder="">
+                                    <option class="mr-3" value="">{{ __('Nama Desa/Kelurahan') }}</option>
+                                        <option class="mr-3" value="">{{ __('Nama Desa/Kelurahan') }}</option>
+                                </select>
                                 <small class="text-danger" role="alert">
-                                    @error('namaKelurahan')
+                                    @error('id_tanaman')
                                         {{ $message }}
                                     @enderror
                                 </small>
                             </div>
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="warna">Warna Background Desa/Kelurahan (Hexcode)</label>
-                                <input class="form-control" id="warna" name="warna" type="text" placeholder="Masukkan Hexcode Warna" />
+                                <label class="small mb-1" for="luas_lahan">Luas Lahan (Ha)</label>
+                                <input class="form-control" id="luas_lahan" name="luas_lahan" value="{{ $lahan->luas_lahan }}" type="text" placeholder="Masukkan Luas Lahan" />
                                 <small class="text-danger" role="alert">
-                                    @error('warna')
-                                        {{ $message }}
-                                    @enderror
-                                </small>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-group">
-                                <label class="small mb-1" for="geojson">Geo JSON</label>
-                                <textarea class="form-control" id="geojson" name="geojson" type="text" rows="10" placeholder="Geo JSON"></textarea>
-                                <small class="text-danger" role="alert">
-                                    @error('geojson')
+                                    @error('luas_lahan')
                                         {{ $message }}
                                     @enderror
                                 </small>

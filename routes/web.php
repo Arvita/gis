@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\TanamanController;
+use App\Http\Controllers\LahanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,10 @@ Route::post('/tanaman/store', [TanamanController::class, 'store']);
 Route::get('/tanaman/delete/{id_tanaman}', [TanamanController::class, 'deleteData']);
 Route::get('/tanaman/edit/{id_tanaman}', [TanamanController::class, 'detail']);
 Route::post('/tanaman/update/{id_tanaman}', [TanamanController::class, 'update']);
+
+Route::get('/lahan', [LahanController::class, 'index'])->name('lahan');
+Route::get('/lahan/add', [LahanController::class, 'add']);
+Route::post('/lahan/insert', [LahanController::class, 'insert']);
+Route::get('/lahan/edit/{id_lahan}', [LahanController::class, 'edit']);
+Route::post('/lahan/update/{id_lahan}', [LahanController::class, 'update']);
+Route::get('/lahan/delete/{id_lahan}', [LahanController::class, 'delete']);

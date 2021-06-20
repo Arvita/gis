@@ -77,11 +77,15 @@
                             </a>
                             <a class="nav-link" href="/kelurahan">
                                 <div class="nav-link-icon"><i data-feather="home"></i></div>
-                                {{ __('Data Kelurahan') }}
+                                {{ __('Data Desa/Kelurahan') }}
                             </a>
                             <a class="nav-link" href="/tanaman">
                                 <div class="nav-link-icon"><i data-feather="feather"></i></div>
                                 {{ __('Data Tanaman') }}
+                            </a>
+                            <a class="nav-link" href="/lahan">
+                                <div class="nav-link-icon"><i data-feather="feather"></i></div>
+                                {{ __('Data Lahan') }}
                             </a>
                         </div>
                     </div>
