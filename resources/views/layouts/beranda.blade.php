@@ -102,18 +102,18 @@
                                                 });
 
 // ########## KECAMATAN ########## //
-                                                // var vector_kecamatan = L.layerGroup();
+                                                var vector_kecamatan = L.layerGroup();
 
-                                                // @foreach ($kecamatan as $data)
-                                                //     L.geoJSON(<?= $data->geojson ?>,{
-                                                //         style : {
-                                                //             color : 'black',
-                                                //             fillColor : '{{ $data->warna }}',
-                                                //             fillOpacity : 1.0,
-                                                //             weight: 1,
-                                                //         },
-                                                //     }).bindPopup("{{ $data->nama_kecamatan }}").addTo(vector_kecamatan);
-                                                // @endforeach                                           
+                                                @foreach ($kecamatan as $data)
+                                                    L.geoJSON(<?= $data->geojson ?>,{
+                                                        style : {
+                                                            color : 'black',
+                                                            fillColor : '{{ $data->warna }}',
+                                                            fillOpacity : 1.0,
+                                                            weight: 1,
+                                                        },
+                                                    }).bindPopup("{{ $data->nama_kecamatan }}").addTo(vector_kecamatan);
+                                                @endforeach                                           
 
                                                 // var map = L.map('map', {
                                                 //     center: [-8.264371593833262, 113.6321026467762],
@@ -156,6 +156,7 @@
                                                 };
 
                                                 var overlayer = {
+                                                    "Kecamatan" : vector_kecamatan,
                                                     "Kelurahan": vector_kelurahan
                                                 };
 
@@ -187,9 +188,11 @@
 
                                                     // ########## LEGEND MANUAL ########## //
                                                     labels.push(
-                                                            '<i style="background:#f4a100' + '"></i> ' + 'Padi',
-                                                            '<i style="background:#f76400' + '"></i> ' + 'Jagung',
-                                                            '<i style="background:#00ac69' + '"></i> ' + 'Kedelai',);
+                                                        @foreach ($tanaman as $data)
+                                                            '<i style="background:{{ $data->warna }}' + '"></i> ' + '{{ $data->nama_tanaman }}',
+                                                           
+                                                        @endforeach   
+                                                        );
                                                     // ########## LEGEND MANUAL ########## //
                                                     
                                                     div.innerHTML = labels.join('<br>');
