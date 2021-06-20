@@ -20,7 +20,8 @@ class TanamanController extends Controller
     {
         $data = [
             'title' => 'Tanaman',
-            'tanaman' => $this->TanamanModel->getAllData()
+            'tanaman' => $this->TanamanModel->getAllData(),
+            'kelurahan' => $this->TanamanModel->AllData()
         ];
         return view('admin.tanaman.v_index', $data);
         // echo "tanaman";

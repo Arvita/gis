@@ -67,7 +67,7 @@
                                     <div class="modal-body">Apakah Anda yakin untuk menghapus data Tanaman {{ $data->nama_tanaman }}?</div>
                                     <div class="modal-footer">
                                         <button class="btn btn-primary" type="button" data-dismiss="modal">Batal</button>
-                                        <a class="btn btn-danger" id="delete_link" type="button" href="/kelurahan/delete/{{ $data->id_tanaman }}">Hapus</a>
+                                        <a class="btn btn-danger" id="delete_link" type="button" href="/tanaman/delete/{{ $data->id_tanaman }}">Hapus</a>
                                     </div>
                                 </div>
                             </div>

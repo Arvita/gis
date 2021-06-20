@@ -43,7 +43,7 @@
                             @foreach ($kelurahan as $data)
                                 <tr>
                                     <td class="text-center">{{ $no++ }}</td>
-                                    <td>{{ $data->id_kecamatan }}</td>
+                                    <td>{{ $data->nama_kecamatan }}</td>
                                     <td>{{ $data->nama_kelurahan }}</td>
                                     <td style="background-color: {{ $data->warna }}"></td>
                                     <td class="text-center">

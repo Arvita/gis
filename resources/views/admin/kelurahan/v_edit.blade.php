@@ -27,6 +27,7 @@
                             <div class="col-lg-4">
                                 <label class="small mb-1" for="id_kecamatan">Nama Kecamatan</label>
                                 <select class="form-control" id="id_kecamatan" name="id_kecamatan" aria-placeholder="">
+                                    <option class="mr-3" value="{{ $kelurahan->id_kecamatan }}">{{ $kelurahan->nama_kecamatan }}</option>
                                     @foreach ($kecamatan as $data)
                                         <option class="mr-3" value="{{ $data->id_kecamatan }}">{{ $data->nama_kecamatan }}</option>
                                     @endforeach

@@ -29,4 +29,8 @@ class TanamanModel extends Model
     {
         DB::table('tanaman')->where('id_tanaman', $id)->update($data);
     }
+    public function AllData()
+    {
+        return DB::table('kelurahan')->get();
+    }
 }
