@@ -12,6 +12,7 @@ class LahanController extends Controller
     {
         $this->middleware('auth');
         $this->LahanModel = new LahanModel();
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     public function index()
@@ -27,6 +28,8 @@ class LahanController extends Controller
     {
         $data = [
             'title' => 'Tambah Data Lahan Baru',
+            'tanaman' => $this->LahanModel->getAllTanaman(),
+            'kelurahan' => $this->LahanModel->getAllKelurahan()
         ];
         return view('admin.lahan.v_add', $data);
     }
@@ -50,6 +53,7 @@ class LahanController extends Controller
             'id_kelurahan' => Request()->id_kelurahan,
             'id_tanaman' => Request()->id_tanaman,
             'luas_lahan' => Request()->luas_lahan,
+            'created_at' => Date('Y-m-d H:i:s')
         ];
         $this->LahanModel->InsertData($data);
         return redirect()->route('lahan')->with('message', 'Berhasil menambahkan data lahan!');
@@ -60,6 +64,8 @@ class LahanController extends Controller
         $data = [
             'title' => 'Edit Data Lahan',
             'lahan' => $this->LahanModel->DetailData($id_lahan),
+            'tanaman' => $this->LahanModel->getAllTanaman(),
+            'kelurahan' => $this->LahanModel->getAllKelurahan()
         ];
         return view('admin.lahan.v_edit', $data);
     }

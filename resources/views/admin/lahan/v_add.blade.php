@@ -27,8 +27,10 @@
                             <div class="col-lg-4">
                                 <label class="small mb-1" for="id_kelurahan">Nama Desa/Kelurahan</label>
                                 <select class="form-control" id="id_kelurahan" name="id_kelurahan" aria-placeholder="">
-                                    <option class="mr-3" value="">{{ __('Nama Desa/Kelurahan') }}</option>
-                                        <option class="mr-3" value="">{{ __('Nama Desa/Kelurahan') }}</option>
+                                    @foreach ($kelurahan as $kelurahan)
+                                        
+                                    <option class="mr-3" value="{{$kelurahan->id_kelurahan}}">{{$kelurahan->nama_kelurahan }}</option>
+                                    @endforeach
                                 </select>
                                 <small class="text-danger" role="alert">
                                     @error('id_kelurahan')
@@ -39,8 +41,9 @@
                             <div class="col-lg-4">
                                 <label class="small mb-1" for="id_tanaman">Nama Tanaman</label>
                                 <select class="form-control" id="id_tanaman" name="id_tanaman" aria-placeholder="">
-                                    <option class="mr-3" value="">{{ __('Nama Tanaman') }}</option>
-                                        <option class="mr-3" value="">{{ __('Nama Tanaman') }}</option>
+                                    @foreach ($tanaman as $tanaman)
+                                        <option class="mr-3" value="{{$tanaman->id_tanaman}}">{{$tanaman->nama_tanaman}}</option>
+                                    @endforeach
                                 </select>
                                 <small class="text-danger" role="alert">
                                     @error('id_tanaman')

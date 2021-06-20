@@ -43,8 +43,8 @@
                             @foreach ($lahan as $data)
                                 <tr>
                                     <td class="text-center">{{ $no++ }}</td>
-                                    <td>{{ $data->id_kelurahan }}</td>
-                                    <td>{{ $data->id_tanaman }}</td>
+                                    <td>{{ $data->nama_kelurahan }}</td>
+                                    <td>{{ $data->nama_tanaman }}</td>
                                     <td>{{ $data->luas_lahan }}</td>
                                     <td class="text-center">
                                         <a href="/lahan/edit/{{ $data->id_lahan }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit-2"></i></a>
