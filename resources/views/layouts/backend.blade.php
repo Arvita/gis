@@ -134,5 +134,15 @@
                 document.getElementById('delete_link').setAttribute('href', delete_url);
             }
         </script>
+        <script>
+            $.ajax({
+                url: "{{ route('kelurahan.ajaxData') }}",
+                type:'GET',
+                
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        </script>
     </body>
 </html>

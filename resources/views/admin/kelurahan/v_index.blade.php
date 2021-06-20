@@ -38,7 +38,7 @@
                                 <th class="text-center" width="100px">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tbody">
                             <?php $no = 1;?>
                             @foreach ($kelurahan as $data)
                                 <tr>
@@ -79,3 +79,4 @@
     </div>
 </main>
 @endsection
+

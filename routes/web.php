@@ -49,6 +49,9 @@ Route::post('/kelurahan/insert', [KelurahanController::class, 'insert']);
 Route::get('/kelurahan/edit/{id_kelurahan}', [KelurahanController::class, 'edit']);
 Route::post('/kelurahan/update/{id_kelurahan}', [KelurahanController::class, 'update']);
 Route::get('/kelurahan/delete/{id_kelurahan}', [KelurahanController::class, 'delete']);
+Route::get('/kelurahan/ajaxData', [KelurahanController::class, 'ajaxData'])->name('kelurahan.ajaxData');
+
+
 
 Route::get('/tanaman', [TanamanController::class, 'index'])->name('tanaman');
 Route::get('/tanaman/add', [TanamanController::class, 'add']);

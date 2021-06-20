@@ -101,4 +101,9 @@ class KelurahanController extends Controller
         $this->KelurahanModel->DeleteData($id_kelurahan);
         return redirect()->route('kelurahan')->with('message', 'Berhasil menghapus data kelurahan!');
     }
+    public function ajaxData()
+    {
+        $data = $this->KelurahanModel->AllData();
+        echo json_encode($data);
+    }
 }
