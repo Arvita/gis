@@ -7,6 +7,8 @@ use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\TanamanController;
 use App\Http\Controllers\LahanController;
+use App\Http\Controllers\DataKecamatanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,8 +53,6 @@ Route::post('/kelurahan/update/{id_kelurahan}', [KelurahanController::class, 'up
 Route::get('/kelurahan/delete/{id_kelurahan}', [KelurahanController::class, 'delete']);
 Route::get('/kelurahan/ajaxData', [KelurahanController::class, 'ajaxData'])->name('kelurahan.ajaxData');
 
-
-
 Route::get('/tanaman', [TanamanController::class, 'index'])->name('tanaman');
 Route::get('/tanaman/add', [TanamanController::class, 'add']);
 Route::post('/tanaman/store', [TanamanController::class, 'store']);
@@ -66,3 +66,5 @@ Route::post('/lahan/insert', [LahanController::class, 'insert']);
 Route::get('/lahan/edit/{id_lahan}', [LahanController::class, 'edit']);
 Route::post('/lahan/update/{id_lahan}', [LahanController::class, 'update']);
 Route::get('/lahan/delete/{id_lahan}', [LahanController::class, 'delete']);
+
+Route::get('/datakecamatan', [DataKecamatanController::class, 'index'])->name('datakecamatan');

@@ -29,7 +29,7 @@
                 <ul class="navbar-nav align-items-center ml-auto">
                     @yield('head')
                     <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
-                        <a class="nav-link" id="navbarDropdownDocs" href="#map">
+                        <a class="nav-link" id="navbarDropdownDocs" href="{{ route('beranda')}}">
                             <div class="d-none d-md-inline font-weight-500">{{ __('Peta Jember') }}</div>
                         </a>
                     </li>
@@ -51,21 +51,46 @@
                 <main id="main-page">
                     <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
                         <div class="container">
-                            <div class="page-header-contentUser pt-3">
+                            <div class="page-header-contentUser pt-0">
                                 <div class="row align-items-center justify-content-between">
-                                    <div class="col-auto">
+                                    <div class="col-auto mt-4">
                                         <h1 class="page-header-title">
-                                            <div class="page-header-icon"><img class="page-header-logo" src="{{ asset('admin') }}/assets/img/logo_jember.png"></img></div>
-                                            {{ __('Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember') }}
+                                            <div class="page-header-icon"><i data-feather="grid"></i></div>
+                                            {{ __('Nama Kecamatan') }}
                                         </h1>
+                                        <div class="page-header-subtitle">{{ __('Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember') }}</div>
                                     </div>
                                 </div>
                             </div>
+                            <div></div>
                         </div>
                     </header>
                     <div class="container mt-n10">
                         <div class="row">
-                            <div class="col-xxl-12 col-xl-12 mb-4">
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Data Nama Kecamatan
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-10 pt-4 pt-lg-0 content">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <ul class="list-unstyled">
+                                                            <li class="pb-2"><strong>Luas Lahan: </strong> 123 Ha</li>
+                                                            <li class="pb-2"><strong>Luas Panen: </strong> 123 Ha</li>
+                                                            <li class="pb-2"><strong>Produksi: </strong> 123 ton</li>
+                                                            <li class="pb-2"><strong>Produktivitas: </strong> 123 Ku/Ha</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
                                 <div class="card h-100">
                                     <div class="card-map h-100 d-flex flex-column justify-content-center">
                                         <div class="align-items-center">
@@ -82,25 +107,6 @@
                                                         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                                                     id: 'mapbox/streets-v11'
                                                 });
-
-                                                // var peta2 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                                                //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                                                //         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                                                //         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                                                //     id: 'mapbox/satellite-v9'
-                                                // });
-
-                                                // var peta3 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                                //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                                // });
-
-                                                // var peta4 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                                                //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                                                //         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                                                //         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                                                //     id: 'mapbox/dark-v10'
-                                                // });
-
 // ########## KECAMATAN ########## //
                                                 var vector_kecamatan = L.layerGroup();
 
@@ -127,24 +133,9 @@
 
                                                 var overlayer = {
                                                     "Kecamatan" : vector_kecamatan,
-                                                    "Kelurahan": vector_kelurahan
                                                 };
 
                                                 L.control.layers(baseMaps, overlayer).addTo(map);
-// ########## KELURAHAN ########## //
-                                                var vector_kelurahan = L.layerGroup();
-
-                                                @foreach ($kelurahan as $data)
-                                                    L.geoJSON(<?= $data->geojson ?>,{
-                                                        style : {
-                                                            color : 'black',
-                                                            fillColor : '{{ $data->warna }}',
-                                                            fillOpacity : 1.0,
-                                                            weight: 1,
-                                                        },
-                                                    }).bindPopup("{{ $data->nama_kelurahan }}").addTo(vector_kelurahan);
-                                                @endforeach
-// ########## KELURAHAN ########## //
 // ########## LEGEND ########## //
                                                 function getColor(d) {
                                                     return d == 'Padi' ? '#f4a100' :
@@ -179,71 +170,60 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xxl-3 col-lg-6">
-                                <div class="card bg-primary text-white mb-4">
+                            <div class="col-lg-4 mb-4">
+                                <div class="card">
+                                    <div class="card-header">Grafik Produktivitas Padi</div>
                                     <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Lahan Produksi Kab. Jember') }}</div>
-                                                <div class="text-lg font-weight-bold">{{ __('72.000 ha') }}</div>
-                                            </div>
-                                            <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/total_lahan.svg"/>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">{{ __('Lihat Detail Data') }}</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <div class="chart-area"><canvas id="grafik_padi" width="100%" height="30"></canvas></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xxl-3 col-lg-6">
-                                <div class="card bg-yellow text-white mb-4">
+                            <div class="col-lg-4 mb-4">
+                                <div class="card">
+                                    <div class="card-header">Grafik Produktivitas Jagung</div>
                                     <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Lahan Padi') }}</div>
-                                                <div class="text-lg font-weight-bold">{{ __('24.000 ha') }}</div>
-                                            </div>
-                                            <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/padi.svg"/>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">{{ __('Lihat Detail Data') }}</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <div class="chart-area"><canvas id="grafik_jagung" width="100%" height="30"></canvas></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xxl-3 col-lg-6">
-                                <div class="card bg-orange text-white mb-4">
+                            <div class="col-lg-4 mb-4">
+                                <div class="card">
+                                    <div class="card-header">Grafik Produktivitas Kedelai</div>
                                     <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Lahan Jagung') }}</div>
-                                                <div class="text-lg font-weight-bold">{{ __('24.000 ha') }}</div>
-                                            </div>
-                                            <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/jagung.svg"/>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">{{ __('Lihat Detail Data') }}</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <div class="chart-area"><canvas id="grafik_kedelai" width="100%" height="30"></canvas></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xxl-3 col-lg-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Lahan Kedelai') }}</div>
-                                                <div class="text-lg font-weight-bold">{{ __('24.000 ha') }}</div>
-                                            </div>
-                                            <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/kedelai.svg"/>
-                                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+                                <div class="card card-header-actions mx-auto">
+                                    <div class="card-header">
+                                        Data Setiap Kelurahan
                                     </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">{{ __('Lihat Detail Data') }}</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    <div class="card-body">
+                                        <div class="datatable table-responsive">
+                                            <table class="table table-striped table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No.</th>
+                                                        <th>Nama Kelurahan</th>
+                                                        <th>Luas Produksi (Ha)</th>
+                                                        <th>Produksi (ton)</th>
+                                                        <th>Produktivitas (Ku/Ha)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-dark"id="target">
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
