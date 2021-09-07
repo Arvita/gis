@@ -61,6 +61,35 @@
                                 </small>
                             </div>
                         </div>
+                        <div class="row form-group">
+                            <div class="col-lg-4">
+                                <label class="small mb-1" for="luas_panen">Luas Panen (Ha)</label>
+                                <input class="form-control" id="luas_panen" name="luas_panen" type="text" placeholder="Masukkan Luas Panen" />
+                                <small class="text-danger" role="alert">
+                                    @error('luas_panen')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="small mb-1" for="produksi">Produksi (ton)</label>
+                                <input class="form-control" id="produksi" name="produksi" type="text" placeholder="Masukkan Luas Produksi" />
+                                <small class="text-danger" role="alert">
+                                    @error('produksi')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="small mb-1" for="produktivitas">Produktivitas (Ku/Ha)</label>
+                                <input class="form-control" id="produktivitas" name="produktivitas" type="text" placeholder="Masukkan Produktivitas" />
+                                <small class="text-danger" role="alert">
+                                    @error('produktivitas')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+                            </div>
+                        </div>
                         <hr class="my-4" />
                         <button class="btn btn-primary" type="submit">Simpan</button>
                         <a class="btn btn-danger" href="javascript:history.go(-1)">Batal</a>

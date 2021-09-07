@@ -7,7 +7,6 @@ use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\TanamanController;
 use App\Http\Controllers\LahanController;
-use App\Http\Controllers\DataKecamatanController;
 
 
 /*
@@ -35,6 +34,7 @@ Auth::routes();
 // ########## WEB GIS TANAMAN PANGAN ########## //
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 Route::get('/', [BerandaController::class, 'index'])->name('home');
+Route::get('/home/detail/{id_kecamatan}', [BerandaController::class, 'detail']);
 
 Route::get('/home', [DashboardController::class, 'index'])->name('home');
 
@@ -66,5 +66,3 @@ Route::post('/lahan/insert', [LahanController::class, 'insert']);
 Route::get('/lahan/edit/{id_lahan}', [LahanController::class, 'edit']);
 Route::post('/lahan/update/{id_lahan}', [LahanController::class, 'update']);
 Route::get('/lahan/delete/{id_lahan}', [LahanController::class, 'delete']);
-
-Route::get('/datakecamatan', [DataKecamatanController::class, 'index'])->name('datakecamatan');

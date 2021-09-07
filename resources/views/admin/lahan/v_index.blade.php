@@ -35,6 +35,9 @@
                                 <th>Kelurahan</th>
                                 <th>Tanaman</th>
                                 <th>Luas Lahan</th>
+                                <th>Luas Panen</th>
+                                <th>Produksi</th>
+                                <th>Produktivitas</th>
                                 <th class="text-center" width="100px">Aksi</th>
                             </tr>
                         </thead>
@@ -46,6 +49,9 @@
                                     <td>{{ $data->nama_kelurahan }}</td>
                                     <td>{{ $data->nama_tanaman }}</td>
                                     <td>{{ $data->luas_lahan }}</td>
+                                    <td>{{ $data->luas_panen }}</td>
+                                    <td>{{ $data->produksi }}</td>
+                                    <td>{{ $data->produktivitas }}</td>
                                     <td class="text-center">
                                         <a href="/lahan/edit/{{ $data->id_lahan }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit-2"></i></a>
                                         <button href="" onclick="confirm_modal('/lahan/delete/{{ $data->id_lahan }}')" data-toggle="modal" data-target="#modalDelete{{ $data->id_lahan }}" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>

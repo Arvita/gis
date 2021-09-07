@@ -53,6 +53,9 @@ class LahanController extends Controller
             'id_kelurahan' => Request()->id_kelurahan,
             'id_tanaman' => Request()->id_tanaman,
             'luas_lahan' => Request()->luas_lahan,
+            'luas_panen' => Request()->luas_panen,
+            'produksi' => Request()->produksi,
+            'produktivitas' => Request()->produktivitas,
             'created_at' => Date('Y-m-d H:i:s')
         ];
         $this->LahanModel->InsertData($data);
@@ -89,6 +92,9 @@ class LahanController extends Controller
             'id_kelurahan' => Request()->id_kelurahan,
             'id_tanaman' => Request()->id_tanaman,
             'luas_lahan' => Request()->luas_lahan,
+            'luas_panen' => Request()->luas_panen,
+            'produksi' => Request()->produksi,
+            'produktivitas' => Request()->produktivitas,
         ];
         $this->LahanModel->UpdateData($id_lahan, $data);
         return redirect()->route('lahan')->with('message', 'Berhasil mengubah data lahan!');

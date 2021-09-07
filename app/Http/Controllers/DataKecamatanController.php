@@ -12,7 +12,7 @@ class DataKecamatanController extends Controller
         $this->DataKecamatanModel = new DataKecamatanModel();
     }
 
-    public function index()
+    public function index($id)
     {
         $data = [
             'kecamatan' => $this->DataKecamatanModel->DataKecamatan(),

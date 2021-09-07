@@ -112,7 +112,7 @@
                                                             fillOpacity : 1.0,
                                                             weight: 1,
                                                         },
-                                                    }).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br>Padi: 123 Ku/Ha<br>Jagung: 456 Ku/Ha<br>Kedelai: 789 Ku/Ha<br><a class="btn btn-sm btn-primary text-white mt-2" href="{{ route('datakecamatan') }}">Detail</a>').addTo(vector_kecamatan);
+                                                    }).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br>Padi: 123 Ku/Ha<br>Jagung: 456 Ku/Ha<br>Kedelai: 789 Ku/Ha<br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(vector_kecamatan);
                                                 @endforeach                                           
 // ########## KECAMATAN ########## //
                                                 var map = L.map('map', {

@@ -56,7 +56,7 @@
                                     <div class="col-auto mt-4">
                                         <h1 class="page-header-title">
                                             <div class="page-header-icon"><i data-feather="grid"></i></div>
-                                            {{ __('Nama Kecamatan') }}
+                                            {{ $detail->nama_kecamatan }}
                                         </h1>
                                         <div class="page-header-subtitle">{{ __('Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember') }}</div>
                                     </div>
@@ -78,10 +78,10 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <ul class="list-unstyled">
-                                                            <li class="pb-2"><strong>Luas Lahan: </strong> 123 Ha</li>
-                                                            <li class="pb-2"><strong>Luas Panen: </strong> 123 Ha</li>
-                                                            <li class="pb-2"><strong>Produksi: </strong> 123 ton</li>
-                                                            <li class="pb-2"><strong>Produktivitas: </strong> 123 Ku/Ha</li>
+                                                            <li class="pb-2"><strong>Luas Lahan: </strong> {{ $LuasLahan }} Ha</li>
+                                                            <li class="pb-2"><strong>Luas Panen: </strong> {{ $LuasPanen }} Ha</li>
+                                                            <li class="pb-2"><strong>Produksi: </strong> {{ $Produksi }} ton</li>
+                                                            <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Ku/Ha</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -110,16 +110,17 @@
 // ########## KECAMATAN ########## //
                                                 var vector_kecamatan = L.layerGroup();
 
-                                                @foreach ($kecamatan as $data)
-                                                    L.geoJSON(<?= $data->geojson ?>,{
+                                                // @foreach ($detail as $data)
+                                                    // console.log($data)
+                                                    L.geoJSON(<?= $detail->geojson ?>,{
                                                         style : {
                                                             color : 'black',
-                                                            fillColor : '{{ $data->warna }}',
+                                                            fillColor : '{{ $detail->warna }}',
                                                             fillOpacity : 1.0,
                                                             weight: 1,
                                                         },
-                                                    }).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br>Padi: 123 Ku/Ha<br>Jagung: 456 Ku/Ha<br>Kedelai: 789 Ku/Ha<br><a class="btn btn-sm btn-primary text-white mt-2" href="{{ route('datakecamatan') }}">Detail</a>').addTo(vector_kecamatan);
-                                                @endforeach                                           
+                                                    }).bindPopup('<b class="text-sm">{{ $detail->nama_kecamatan }}</b><br>Padi: 123 Ku/Ha<br>Jagung: 456 Ku/Ha<br>Kedelai: 789 Ku/Ha<br><a class="btn btn-sm btn-primary text-white mt-2" href="">Detail</a>').addTo(vector_kecamatan);
+                                                // @endforeach                                           
 // ########## KECAMATAN ########## //
                                                 var map = L.map('map', {
                                                     center: [-8.264371593833262, 113.6321026467762],
@@ -208,20 +209,28 @@
                                                     <tr>
                                                         <th>No.</th>
                                                         <th>Nama Kelurahan</th>
+                                                        <th>Tanaman</th>
+                                                        <th>Luas Lahan (Ha)</th>
                                                         <th>Luas Produksi (Ha)</th>
                                                         <th>Produksi (ton)</th>
                                                         <th>Produktivitas (Ku/Ha)</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody class="text-dark"id="target">
-                                                        <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                </tbody>
+                                                <tbody>
+                                                <?php $no = 1;?>
+                                                @foreach ($detaillahan as $data)
+                                                    <tr>
+                                                        <td class="text-center">{{ $no++ }}</td>
+                                                        <td>{{ $data->nama_kelurahan }}</td>
+                                                        <td>{{ $data->nama_tanaman }}</td>
+                                                        <td>{{ $data->luas_lahan }}</td>
+                                                        <td>{{ $data->luas_panen }}</td>
+                                                        <td>{{ $data->produksi }}</td>
+                                                        <td>{{ $data->produktivitas }}</td>
+                                                    
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
                                             </table>
                                         </div>
                                     </div>
