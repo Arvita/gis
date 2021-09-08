@@ -34,7 +34,7 @@ class DataKecamatanModel extends Model
     {
         return DB::table('lahan')
             ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
-            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kelurahan')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kecamatan')
             ->select('lahan.*', 'kelurahan.*', 'kecamatan.*')
             ->where('kecamatan.id_kecamatan', '=', $id_kecamatan)
             ->sum('lahan.luas_lahan');
@@ -43,7 +43,7 @@ class DataKecamatanModel extends Model
     {
         return DB::table('lahan')
             ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
-            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kelurahan')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kecamatan')
             ->select('lahan.*', 'kelurahan.nama_kelurahan', 'kecamatan.*')
             ->where('kecamatan.id_kecamatan', '=', $id_kecamatan)
             ->sum('lahan.luas_panen');
@@ -52,7 +52,7 @@ class DataKecamatanModel extends Model
     {
         return DB::table('lahan')
             ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
-            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kelurahan')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kecamatan')
             ->select('lahan.*', 'kelurahan.nama_kelurahan', 'kecamatan.*')
             ->where('kecamatan.id_kecamatan', '=', $id_kecamatan)
             ->sum('lahan.produksi');
@@ -61,7 +61,7 @@ class DataKecamatanModel extends Model
     {
         return DB::table('lahan')
             ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
-            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kelurahan')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kecamatan')
             ->select('lahan.*', 'kelurahan.nama_kelurahan', 'kecamatan.*')
             ->where('kecamatan.id_kecamatan', '=', $id_kecamatan)
             ->sum('lahan.produktivitas');
