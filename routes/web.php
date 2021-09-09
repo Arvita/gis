@@ -36,6 +36,7 @@ Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
 Route::get('/', [BerandaController::class, 'index'])->name('home');
 Route::get('/home/detail/{id_kecamatan}', [BerandaController::class, 'detail']);
 
+Route::get('/home/lahan_detail/{id_lahan}', [BerandaController::class, 'lahan_detail']);
 Route::get('/home', [DashboardController::class, 'index'])->name('home');
 
 Route::get('/kecamatan', [KecamatanController::class, 'index'])->name('kecamatan');
@@ -66,3 +67,4 @@ Route::post('/lahan/insert', [LahanController::class, 'insert']);
 Route::get('/lahan/edit/{id_lahan}', [LahanController::class, 'edit']);
 Route::post('/lahan/update/{id_lahan}', [LahanController::class, 'update']);
 Route::get('/lahan/delete/{id_lahan}', [LahanController::class, 'delete']);
+Route::get('/lahan/detail/{id_lahan}', [LahanController::class, 'detail']);

@@ -11,13 +11,19 @@ class LahanModel extends Model
     public function DataLahan()
     {
         return DB::table('lahan')
-            ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'lahan.id_kecamatan')
             ->join('tanaman', 'lahan.id_tanaman', '=', 'tanaman.id_tanaman')
-            ->select('lahan.*', 'kelurahan.nama_kelurahan', 'tanaman.nama_tanaman')->get();
+            ->select('lahan.*', 'kecamatan.nama_kecamatan', 'tanaman.nama_tanaman')
+            ->orderBy('created_at', 'desc')
+            ->get();
     }
     public function getAllKelurahan()
     {
         return DB::table('kelurahan')->get();
+    }
+    public function getAllKecamatan()
+    {
+        return DB::table('kecamatan')->get();
     }
     public function getAllTanaman()
     {
@@ -32,9 +38,9 @@ class LahanModel extends Model
     public function DetailData($id_lahan)
     {
         return DB::table('lahan')
-            ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'lahan.id_kecamatan')
             ->join('tanaman', 'lahan.id_tanaman', '=', 'tanaman.id_tanaman')
-            ->select('lahan.*', 'kelurahan.nama_kelurahan', 'tanaman.nama_tanaman')
+            ->select('lahan.*', 'kecamatan.*', 'tanaman.*')
             ->where('id_lahan', $id_lahan)->first();
     }
 

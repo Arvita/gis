@@ -76,6 +76,7 @@
                                                 .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
                                             </style>
                                             <script>
+                                                
                                                 var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                                                     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
                                                         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -112,15 +113,26 @@
                                                             fillOpacity : 1.0,
                                                             weight: 1,
                                                         },
-                                                    }).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br>Padi: 123 Ku/Ha<br>Jagung: 456 Ku/Ha<br>Kedelai: 789 Ku/Ha<br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(vector_kecamatan);
+                                                    }).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(vector_kecamatan);
                                                 @endforeach                                           
 // ########## KECAMATAN ########## //
                                                 var map = L.map('map', {
                                                     center: [-8.264371593833262, 113.6321026467762],
                                                     zoom: 10,
-                                                    layers: [peta1, vector_kecamatan]
+                                                    layers: [peta1, vector_kecamatan],
                                                 });
-                                                
+                                                @foreach ($pinMaps as $data)
+                                                var greenIcon = L.icon({
+                                                    iconUrl: `http://127.0.0.1:8000/{{$data->logo}}`,
+                        
+                                                    iconSize:     [60, 60], // size of the icon
+                                                    shadowSize:   [60, 60], // size of the shadow
+                                                    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                                                    shadowAnchor: [4, 62],  // the same for the shadow
+                                                    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+                                                });
+                                                var marker = L.marker([{{ $data->latitude }} , {{ $data->longitude }}] , {icon: greenIcon}).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br>Luas Lahan: {{ $data->luas_lahan }} Ku/Ha<br>Tanaman: {{ $data->nama_tanaman }}<br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/lahan_detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(map);
+                                                @endforeach   
                                                 var baseMaps = {
                                                     "Map": peta1,
                                                 };
@@ -145,7 +157,7 @@
                                                     }).bindPopup("{{ $data->nama_kelurahan }}").addTo(vector_kelurahan);
                                                 @endforeach
 // ########## KELURAHAN ########## //
-// ########## LEGEND ########## //
+// ########## LEGEND ########## //              
                                                 function getColor(d) {
                                                     return d == 'Padi' ? '#f4a100' :
                                                             d == 'Jagung'  ? '#f76400' :
@@ -185,7 +197,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
                                                 <div class="text-white-75 small">{{ __('Total Lahan Produksi Kab. Jember') }}</div>
-                                                <div class="text-lg font-weight-bold">{{ __('72.000 ha') }}</div>
+                                                <div class="text-lg font-weight-bold">{{ $luaslahan }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/total_lahan.svg"/>
                                         </div>
@@ -202,7 +214,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
                                                 <div class="text-white-75 small">{{ __('Total Lahan Padi') }}</div>
-                                                <div class="text-lg font-weight-bold">{{ __('24.000 ha') }}</div>
+                                                <div class="text-lg font-weight-bold">{{ $luaspadi }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/padi.svg"/>
                                         </div>
@@ -219,7 +231,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
                                                 <div class="text-white-75 small">{{ __('Total Lahan Jagung') }}</div>
-                                                <div class="text-lg font-weight-bold">{{ __('24.000 ha') }}</div>
+                                                <div class="text-lg font-weight-bold">{{ $luasjagung }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/jagung.svg"/>
                                         </div>
@@ -236,7 +248,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
                                                 <div class="text-white-75 small">{{ __('Total Lahan Kedelai') }}</div>
-                                                <div class="text-lg font-weight-bold">{{ __('24.000 ha') }}</div>
+                                                <div class="text-lg font-weight-bold">{{ $luaskedelai }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/kedelai.svg"/>
                                         </div>

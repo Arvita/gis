@@ -82,7 +82,10 @@
                                                             <li class="pb-2"><strong>Luas Panen: </strong> {{ $LuasPanen }} Ha</li>
                                                             <li class="pb-2"><strong>Produksi: </strong> {{ $Produksi }} ton</li>
                                                             <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Ku/Ha</li>
-                                                                  </ul>
+                                                            <li class="pb-2"><strong>Ph Tanah: </strong> {{ $detaillahan->ph  }} PH</li>
+                                                            <li class="pb-2"><strong>DH: </strong> {{ $detaillahan->dh  }} DH</li>
+                                                            <li class="pb-2"><strong>Suhu: </strong> {{ $detaillahan->suhu   }} C</li>
+                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,18 +116,18 @@
                                                 // @foreach ($detail as $data)
                                                     // console.log($data)
                                                     L.geoJSON(<?= $detail->geojson ?>,{
-                                                    style : {
-                                                        color : 'black',
-                                                        fillColor : '{{ $detail->warna }}',
-                                                        fillOpacity : 1.0,
-                                                        weight: 1,
-                                                    },
-                                                }).bindPopup('<b class="text-sm">{{ $detail->nama_kecamatan }}</b>').addTo(vector_kecamatan);
+                                                        style : {
+                                                            color : 'black',
+                                                            fillColor : '{{ $detail->warna }}',
+                                                            fillOpacity : 1.0,
+                                                            weight: 1,
+                                                        },
+                                                    }).bindPopup('<b class="text-sm">{{ $detail->nama_kecamatan }}</b><br>Padi: 123 Ku/Ha<br>Jagung: 456 Ku/Ha<br>Kedelai: 789 Ku/Ha<br><a class="btn btn-sm btn-primary text-white mt-2" href="">Detail</a>').addTo(vector_kecamatan);
                                                 // @endforeach                                           
 // ########## KECAMATAN ########## //
                                                 var map = L.map('map', {
-                                                    center: [-8.264371593833262, 113.6321026467762],
-                                                    zoom: 10,
+                                                    center: [{{ $detail->latitude }}, {{ $detail->longitude }}],
+                                                    zoom: 12,
                                                     layers: [peta1, vector_kecamatan]
                                                 });
                                                 

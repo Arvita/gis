@@ -24,46 +24,76 @@ class DataKecamatanModel extends Model
     public function DetailData($id_kecamatan)
     {
         return DB::table('kecamatan')
-            ->join('kelurahan', 'kelurahan.id_kecamatan', '=', 'kecamatan.id_kecamatan')
-            ->join('lahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
+            ->join('lahan', 'kecamatan.id_kecamatan', '=', 'lahan.id_kecamatan')
             ->join('tanaman', 'lahan.id_tanaman', '=', 'tanaman.id_tanaman')
-            ->select('lahan.*', 'kelurahan.nama_kelurahan', 'tanaman.nama_tanaman', 'kecamatan.nama_kecamatan')
-            ->where('kecamatan.id_kecamatan', $id_kecamatan)->get();
+            ->select('lahan.*', 'tanaman.*', 'kecamatan.*')
+            ->where('kecamatan.id_kecamatan', $id_kecamatan)->first();
+    }
+    public function pinMaps()
+    {
+        return DB::table('kecamatan')
+            ->join('lahan', 'kecamatan.id_kecamatan', '=', 'lahan.id_kecamatan')
+            ->join('tanaman', 'lahan.id_tanaman', '=', 'tanaman.id_tanaman')
+            ->select('lahan.*', 'tanaman.*', 'kecamatan.*')
+            ->get();
     }
     public function LuasLahan($id_kecamatan)
     {
         return DB::table('lahan')
-            ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
-            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kecamatan')
-            ->select('lahan.*', 'kelurahan.*', 'kecamatan.*')
+
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'lahan.id_kecamatan')
+            ->select('lahan.*', 'kecamatan.*')
             ->where('kecamatan.id_kecamatan', '=', $id_kecamatan)
             ->sum('lahan.luas_lahan');
     }
     public function LuasPanen($id_kecamatan)
     {
         return DB::table('lahan')
-            ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
-            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kecamatan')
-            ->select('lahan.*', 'kelurahan.nama_kelurahan', 'kecamatan.*')
+
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'lahan.id_kecamatan')
+            ->select('lahan.*', 'kecamatan.*')
             ->where('kecamatan.id_kecamatan', '=', $id_kecamatan)
             ->sum('lahan.luas_panen');
     }
     public function Produksi($id_kecamatan)
     {
         return DB::table('lahan')
-            ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
-            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kecamatan')
-            ->select('lahan.*', 'kelurahan.nama_kelurahan', 'kecamatan.*')
+
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'lahan.id_kecamatan')
+            ->select('lahan.*', 'kecamatan.*')
             ->where('kecamatan.id_kecamatan', '=', $id_kecamatan)
             ->sum('lahan.produksi');
     }
     public function Produktivitas($id_kecamatan)
     {
         return DB::table('lahan')
-            ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'lahan.id_kelurahan')
-            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'kelurahan.id_kecamatan')
-            ->select('lahan.*', 'kelurahan.nama_kelurahan', 'kecamatan.*')
+
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'lahan.id_kecamatan')
+            ->select('lahan.*', 'kecamatan.*')
             ->where('kecamatan.id_kecamatan', '=', $id_kecamatan)
             ->sum('lahan.produktivitas');
+    }
+    public function LuasLahanTotal()
+    {
+        return DB::table('lahan')
+            ->sum('lahan.luas_lahan');
+    }
+    public function LuasPadi()
+    {
+        return DB::table('lahan')
+            ->where('id_tanaman' , 4)
+            ->sum('lahan.luas_lahan');
+    }
+    public function LuasJagung()
+    {
+        return DB::table('lahan')
+            ->where('id_tanaman' , 5)
+            ->sum('lahan.luas_lahan');
+    }
+    public function LuasKedelai()
+    {
+        return DB::table('lahan')
+            ->where('id_tanaman' , 6)
+            ->sum('lahan.luas_lahan');
     }
 }

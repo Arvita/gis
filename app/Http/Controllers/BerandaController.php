@@ -20,6 +20,11 @@ class BerandaController extends Controller
             'kecamatan' => $this->BerandaModel->DataKecamatan(),
             'kelurahan' => $this->BerandaModel->DataKelurahan(),
             'tanaman' => $this->BerandaModel->DataTanaman(),
+            'pinMaps' => $this->DataKecamatanModel->pinMaps(),
+            'luaslahan' => $this->DataKecamatanModel->LuasLahanTotal(),
+            'luaspadi' => $this->DataKecamatanModel->LuasPadi(),
+            'luasjagung' => $this->DataKecamatanModel->LuasJagung(),
+            'luaskedelai' => $this->DataKecamatanModel->LuasKedelai(),
         ];
         return view('layouts.beranda', $data);
     }
@@ -36,6 +41,21 @@ class BerandaController extends Controller
             'Produktivitas' => $this->DataKecamatanModel->Produktivitas($id),
         ];
         return view('layouts.datakecamatan', $data);
+        // echo json_encode($data);
+    }
+    public function lahan_detail($id)
+    {
+        $data = [
+            'kecamatan' => $this->DataKecamatanModel->DataKecamatan(),
+            'tanaman' => $this->DataKecamatanModel->DataTanaman(),
+            'detail' => $this->DataKecamatanModel->DetailKecamatan($id),
+            'detaillahan' => $this->DataKecamatanModel->DetailData($id),
+            'LuasLahan' => $this->DataKecamatanModel->LuasLahan($id),
+            'LuasPanen' => $this->DataKecamatanModel->LuasPanen($id),
+            'Produksi' => $this->DataKecamatanModel->Produksi($id),
+            'Produktivitas' => $this->DataKecamatanModel->Produktivitas($id),
+        ];
+        return view('layouts.datalahan', $data);
         // echo json_encode($data);
     }
 }

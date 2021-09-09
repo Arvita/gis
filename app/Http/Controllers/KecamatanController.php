@@ -49,6 +49,8 @@ class KecamatanController extends Controller
             'nama_kecamatan' => Request()->namaKecamatan,
             'geojson' => Request()->geojson,
             'warna' => Request()->warna,
+            'latitude' => Request()->lat,
+            'longitude' => Request()->long,
         ];
         $this->KecamatanModel->InsertData($data);
         return redirect()->route('kecamatan')->with('message', 'Berhasil menambahkan data kecamatan!');
@@ -82,6 +84,8 @@ class KecamatanController extends Controller
             'nama_kecamatan' => Request()->namaKecamatan,
             'geojson' => Request()->geojson,
             'warna' => Request()->warna,
+            'latitude' => Request()->lat,
+            'longitude' => Request()->long,
         ];
         $this->KecamatanModel->UpdateData($id_kecamatan, $data);
         return redirect()->route('kecamatan')->with('message', 'Berhasil mengubah data kecamatan!');

@@ -25,16 +25,16 @@
                     <div class="col-xl-12">
                         <div class="row form-group">
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="id_kelurahan">Nama Desa/Kelurahan</label>
-                                <select class="form-control" id="id_kelurahan" name="id_kelurahan" aria-placeholder="">
-                                    {{-- <option class="mr-3" value="{{$lahan->id_kelurahan}}">{{ $lahan->nama_kelurahan }}</option> --}}
-                                    @foreach ($kelurahan as $kelurahan)
-                                        <option class="mr-3" value="{{$kelurahan->id_kelurahan}}"{{$lahan->id_kelurahan == $kelurahan->id_kelurahan ? 'selected' : ''}}>{{ $kelurahan->nama_kelurahan }}</option>
+                                <label class="small mb-1" for="id_kecamatan">Nama Desa/Kelurahan</label>
+                                <select class="form-control" id="id_kecamatan" name="id_kecamatan" aria-placeholder="">
+                                    {{-- <option class="mr-3" value="{{$lahan->id_kecamatan}}">{{ $lahan->nama_kelurahan }}</option> --}}
+                                    @foreach ($kecamatan as $kecamatan)
+                                        <option class="mr-3" value="{{$kecamatan->id_kecamatan}}"{{$lahan->id_kecamatan == $kecamatan->id_kecamatan ? 'selected' : ''}}>{{ $kecamatan->nama_kecamatan }}</option>
                                        
                                     @endforeach
                                 </select>
                                 <small class="text-danger" role="alert">
-                                    @error('id_kelurahan')
+                                    @error('id_kecamatan')
                                         {{ $message }}
                                     @enderror
                                 </small>
@@ -89,6 +89,35 @@
                                 <input class="form-control" id="produktivitas" name="produktivitas" type="text" placeholder="Masukkan Produktivitas" value="{{ $lahan->produktivitas }}" />
                                 <small class="text-danger" role="alert">
                                     @error('produktivitas')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-4">
+                                <label class="small mb-1" for="ph">PH</label>
+                                <input class="form-control" id="ph" name="ph" type="text" required placeholder="Masukkan PH"  value="{{ $lahan->ph }}" />
+                                <small class="text-danger" role="alert">
+                                    @error('ph')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="small mb-1" for="suhu">Suhu</label>
+                                <input class="form-control" id="suhu" name="suhu" type="text" required placeholder="Masukkan Suhu"  value="{{ $lahan->suhu }}" />
+                                <small class="text-danger" role="alert">
+                                    @error('suhu')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="small mb-1" for="dh">DH</label>
+                                <input class="form-control" id="dh" name="dh" type="text" required placeholder="Masukkan DH"  value="{{ $lahan->dh }}"/>
+                                <small class="text-danger" role="alert">
+                                    @error('dh')
                                         {{ $message }}
                                     @enderror
                                 </small>
