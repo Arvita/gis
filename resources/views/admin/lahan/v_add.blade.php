@@ -109,10 +109,10 @@
                                 </small>
                             </div>
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="dh">DH</label>
-                                <input class="form-control" id="dh" name="dh" type="text" required placeholder="Masukkan DH" />
+                                <label class="small mb-1" for="ch">Curah Hujan</label>
+                                <input class="form-control" id="ch" name="ch" type="text" required placeholder="Masukkan CH" />
                                 <small class="text-danger" role="alert">
-                                    @error('dh')
+                                    @error('ch')
                                         {{ $message }}
                                     @enderror
                                 </small>

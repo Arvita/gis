@@ -66,7 +66,7 @@ class LahanController extends Controller
             'produktivitas' => Request()->produktivitas,
             'ph' => Request()->ph,
             'suhu' => Request()->suhu,
-            'dh' => Request()->dh,
+            'ch' => Request()->ch,
             'created_at' => Date('Y-m-d H:i:s')
         ];
         $this->LahanModel->InsertData($data);
@@ -108,7 +108,7 @@ class LahanController extends Controller
             'produktivitas' => Request()->produktivitas,
             'ph' => Request()->ph,
             'suhu' => Request()->suhu,
-            'dh' => Request()->dh,
+            'ch' => Request()->ch,
         ];
         $this->LahanModel->UpdateData($id_lahan, $data);
         return redirect()->route('lahan')->with('message', 'Berhasil mengubah data lahan!');

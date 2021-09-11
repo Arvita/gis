@@ -61,8 +61,8 @@
                                 <p><b>{{ $data->suhu }}</b></p>
                             </div>
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="dh">DH</label>
-                                <p><b>{{ $data->dh }}</b></p>
+                                <label class="small mb-1" for="ch">Curah Hujan</label>
+                                <p><b>{{ $data->ch }}</b></p>
                             </div>
                         </div>
                     </div>

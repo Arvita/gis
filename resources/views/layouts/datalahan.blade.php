@@ -83,7 +83,7 @@
                                                             <li class="pb-2"><strong>Produksi: </strong> {{ $Produksi }} ton</li>
                                                             <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Ku/Ha</li>
                                                             <li class="pb-2"><strong>Ph Tanah: </strong> {{ $detaillahan->ph  }} PH</li>
-                                                            <li class="pb-2"><strong>DH: </strong> {{ $detaillahan->dh  }} DH</li>
+                                                            <li class="pb-2"><strong>Curah Hujan: </strong> {{ $detaillahan->ch  }} MM</li>
                                                             <li class="pb-2"><strong>Suhu: </strong> {{ $detaillahan->suhu   }} C</li>
                                                         </ul>
                                                     </div>
