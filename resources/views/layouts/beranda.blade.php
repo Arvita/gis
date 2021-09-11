@@ -14,6 +14,9 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('admin') }}/assets/img/logo_polije.png" />
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.27.0/feather.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.0/leaflet.awesome-markers.min.js"></script>
+
+        <link rel="stylesheet" href="{{ asset ('assets/css/leaflet.awesome-markers.css')}}">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
             integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
             crossorigin=""/>
@@ -122,14 +125,18 @@
                                                     layers: [peta1, vector_kecamatan],
                                                 });
                                                 @foreach ($pinMaps as $data)
+                                                // var greenIcon = L.AwesomeMarkers.icon({
+                                                //     icon: 'coffee',
+                                                //     markerColor: 'red'
+                                                // });
                                                 var greenIcon = L.icon({
                                                     iconUrl: `http://127.0.0.1:8000/{{$data->logo}}`,
                         
-                                                    iconSize:     [60, 60], // size of the icon
-                                                    shadowSize:   [60, 60], // size of the shadow
-                                                    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-                                                    shadowAnchor: [4, 62],  // the same for the shadow
-                                                    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+                                                    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76]
                                                 });
                                                 var marker = L.marker([{{ $data->latitude }} , {{ $data->longitude }}] , {icon: greenIcon}).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br>Luas Lahan: {{ $data->luas_lahan }} Ku/Ha<br>Tanaman: {{ $data->nama_tanaman }}<br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/lahan_detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(map);
                                                 @endforeach   
@@ -288,5 +295,6 @@
         <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('admin') }}/assets/demo/date-range-picker-demo.js"></script>
+        <script src="{{  asset('assets')  }}/js/leaflet.awesome-markers.js"></script>
     </body>
 </html>
