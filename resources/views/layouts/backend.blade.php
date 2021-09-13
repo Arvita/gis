@@ -59,24 +59,10 @@
                     <div class="sidenav-menu">
                         <div class="nav accordion" id="accordionSidenav">
                             <div class="sidenav-menu-heading">{{ __('Menu Utama') }}</div>
-                            <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
+                            <a class="nav-link" href="/home">
                                 <div class="nav-link-icon"><i data-feather="activity"></i></div>
                                 {{ __('Dashboard') }}
-                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseDashboards" data-parent="#accordionSidenav">
-                                <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                                    <a class="nav-link" href="/home">
-                                        {{ __('Dashboard') }}
-                                    </a>
-                                    <a class="nav-link" href="#!">
-                                        Multipurpose
-                                    </a>
-                                    <a class="nav-link" href="#!">
-                                        Affiliate
-                                    </a>
-                                </nav>
-                            </div>
                             <div class="sidenav-menu-heading">{{ __('Master Data') }}</div>
                             <a class="nav-link" href="/kecamatan">
                                 <div class="nav-link-icon"><i data-feather="home"></i></div>
@@ -91,7 +77,7 @@
                                 {{ __('Data Tanaman') }}
                             </a>
                             <a class="nav-link" href="/lahan">
-                                <div class="nav-link-icon"><i data-feather="feather"></i></div>
+                                <div class="nav-link-icon"><i data-feather="grid"></i></div>
                                 {{ __('Data Lahan') }}
                             </a>
                         </div>

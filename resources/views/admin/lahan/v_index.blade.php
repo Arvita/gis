@@ -7,7 +7,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="feather"></i></div>
+                            <div class="page-header-icon"><i data-feather="grid"></i></div>
                             {{ __($title) }}
                         </h1>
                         <div class="page-header-subtitle">Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember</div>
@@ -46,9 +46,9 @@
                                     <td>{{ $data->nama_tanaman }}</td>
                                   
                                     <td class="text-center">
-                                        <a href="/lahan/detail/{{ $data->id_lahan }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="plus"></i></a>
+                                        <a href="/lahan/detail/{{ $data->id_lahan }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="zoom-in"></i></a>
                                         <a href="/lahan/edit/{{ $data->id_lahan }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit-2"></i></a>
-                                        <button href="" onclick="confirm_modal('/lahan/delete/{{ $data->id_lahan }}')" data-toggle="modal" data-target="#modalDelete{{ $data->id_lahan }}" class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>
+                                        <button href="" onclick="confirm_modal('/lahan/delete/{{ $data->id_lahan }}')" data-toggle="modal" data-target="#modalDelete{{ $data->id_lahan }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="trash-2"></i></button>
                                     </td>
                                 </tr>
                             @endforeach

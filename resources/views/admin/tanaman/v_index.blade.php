@@ -44,7 +44,7 @@
                                 <tr>
                                     <td class="text-center">{{ $no++ }}</td>
                                     <td>{{ $data->nama_tanaman }}</td>
-                                    <td class="text-center"><img src="{{$data->logo}}" alt="" style="width:150px"></td>
+                                    <td class="text-center"><img src="{{$data->logo}}" alt="" style="width:50px; height:50px"></td>
                                     <td style="background-color: {{ $data->warna }}"></td>
                                     <td class="text-center">
                                         <a href="/tanaman/edit/{{ $data->id_tanaman }}" class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="edit-2"></i></a>

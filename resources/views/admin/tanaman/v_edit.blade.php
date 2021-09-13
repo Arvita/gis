@@ -7,7 +7,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="home"></i></div>
+                            <div class="page-header-icon"><i data-feather="feather"></i></div>
                             {{ __($title) }}
                         </h1>
                         <div class="page-header-subtitle">Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember</div>

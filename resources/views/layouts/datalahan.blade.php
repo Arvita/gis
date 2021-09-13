@@ -33,11 +33,11 @@
                             <div class="d-none d-md-inline font-weight-500">{{ __('Peta Jember') }}</div>
                         </a>
                     </li>
-                    <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
+                    {{-- <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
                         <a class="nav-link" id="navbarDropdownDocs" href="">
                             <div class="d-none d-md-inline font-weight-500">{{ __('Tentang Kami') }}</div>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
                         <a class="nav-link" id="navbarDropdownDocs" href="{{ route('login') }}">
                             <div class="d-none d-md-inline font-weight-500">{{ __('Login Admin') }}</div>
@@ -82,9 +82,9 @@
                                                             <li class="pb-2"><strong>Luas Panen: </strong> {{ $LuasPanen }} Ha</li>
                                                             <li class="pb-2"><strong>Produksi: </strong> {{ $Produksi }} ton</li>
                                                             <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Ku/Ha</li>
-                                                            <li class="pb-2"><strong>Ph Tanah: </strong> {{ $detaillahan->ph  }} PH</li>
-                                                            <li class="pb-2"><strong>Curah Hujan: </strong> {{ $detaillahan->ch  }} MM</li>
-                                                            <li class="pb-2"><strong>Suhu: </strong> {{ $detaillahan->suhu   }} C</li>
+                                                            <li class="pb-2"><strong>Ph Tanah: </strong> {{ $detaillahan->ph  }} pH</li>
+                                                            <li class="pb-2"><strong>Curah Hujan: </strong> {{ $detaillahan->ch  }} mm</li>
+                                                            <li class="pb-2"><strong>Suhu: </strong> {{ $detaillahan->suhu   }} °C</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -122,12 +122,12 @@
                                                             fillOpacity : 1.0,
                                                             weight: 1,
                                                         },
-                                                    }).bindPopup('<b class="text-sm">{{ $detail->nama_kecamatan }}</b><br>Padi: 123 Ku/Ha<br>Jagung: 456 Ku/Ha<br>Kedelai: 789 Ku/Ha<br><a class="btn btn-sm btn-primary text-white mt-2" href="">Detail</a>').addTo(vector_kecamatan);
+                                                    }).bindPopup('<b class="text-sm">{{ $detail->nama_kecamatan }}</b><br>Padi: 123 Ku/Ha<br>Jagung: 456 Ku/Ha<br>Kedelai: 789 Ku/Ha<br>').addTo(vector_kecamatan);
                                                 // @endforeach                                           
 // ########## KECAMATAN ########## //
                                                 var map = L.map('map', {
                                                     center: [{{ $detail->latitude }}, {{ $detail->longitude }}],
-                                                    zoom: 12,
+                                                    zoom: 11,
                                                     layers: [peta1, vector_kecamatan]
                                                 });
                                                 
@@ -135,9 +135,9 @@
                                                     "Map": peta1,
                                                 };
 
-                                                var overlayer = {
-                                                    "Kecamatan" : vector_kecamatan,
-                                                };
+                                                // var overlayer = {
+                                                //     "Kecamatan" : vector_kecamatan,
+                                                // };
 
                                                 L.control.layers(baseMaps, overlayer).addTo(map);
 // ########## LEGEND ########## //

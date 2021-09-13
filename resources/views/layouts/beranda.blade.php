@@ -36,11 +36,11 @@
                             <div class="d-none d-md-inline font-weight-500">{{ __('Peta Jember') }}</div>
                         </a>
                     </li>
-                    <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
+                    {{-- <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
                         <a class="nav-link" id="navbarDropdownDocs" href="">
                             <div class="d-none d-md-inline font-weight-500">{{ __('Tentang Kami') }}</div>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
                         <a class="nav-link" id="navbarDropdownDocs" href="{{ route('login') }}">
                             <div class="d-none d-md-inline font-weight-500">{{ __('Login Admin') }}</div>
@@ -133,10 +133,10 @@
                                                     iconUrl: `http://127.0.0.1:8000/{{$data->logo}}`,
                         
                                                     iconSize:     [38, 95], // size of the icon
-    shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76]
+                                                    shadowSize:   [50, 64], // size of the shadow
+                                                    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                                                    shadowAnchor: [4, 62],  // the same for the shadow
+                                                    popupAnchor:  [-3, -76]
                                                 });
                                                 var marker = L.marker([{{ $data->latitude }} , {{ $data->longitude }}] , {icon: greenIcon}).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br>Luas Lahan: {{ $data->luas_lahan }} Ku/Ha<br>Tanaman: {{ $data->nama_tanaman }}<br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/lahan_detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(map);
                                                 @endforeach   
@@ -144,10 +144,10 @@
                                                     "Map": peta1,
                                                 };
 
-                                                var overlayer = {
-                                                    "Kecamatan" : vector_kecamatan,
-                                                    "Kelurahan": vector_kelurahan
-                                                };
+                                                // var overlayer = {
+                                                //     "Kecamatan" : vector_kecamatan,
+                                                //     "Kelurahan": vector_kelurahan
+                                                // };
 
                                                 L.control.layers(baseMaps, overlayer).addTo(map);
 // ########## KELURAHAN ########## //

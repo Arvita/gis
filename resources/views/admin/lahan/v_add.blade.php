@@ -7,7 +7,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="home"></i></div>
+                            <div class="page-header-icon"><i data-feather="grid"></i></div>
                             {{ __($title) }}
                         </h1>
                         <div class="page-header-subtitle">Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember</div>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="ph">PH</label>
+                                <label class="small mb-1" for="ph">pH</label>
                                 <input class="form-control" id="ph" name="ph" type="text" required placeholder="Masukkan PH" />
                                 <small class="text-danger" role="alert">
                                     @error('ph')
@@ -100,7 +100,7 @@
                                 </small>
                             </div>
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="suhu">Suhu</label>
+                                <label class="small mb-1" for="suhu">Suhu (°C)</label>
                                 <input class="form-control" id="suhu" name="suhu" type="text" required placeholder="Masukkan Suhu" />
                                 <small class="text-danger" role="alert">
                                     @error('suhu')
@@ -109,7 +109,7 @@
                                 </small>
                             </div>
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="ch">Curah Hujan</label>
+                                <label class="small mb-1" for="ch">Curah Hujan (mm)</label>
                                 <input class="form-control" id="ch" name="ch" type="text" required placeholder="Masukkan CH" />
                                 <small class="text-danger" role="alert">
                                     @error('ch')

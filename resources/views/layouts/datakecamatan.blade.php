@@ -33,11 +33,11 @@
                             <div class="d-none d-md-inline font-weight-500">{{ __('Peta Jember') }}</div>
                         </a>
                     </li>
-                    <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
+                    {{-- <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
                         <a class="nav-link" id="navbarDropdownDocs" href="">
                             <div class="d-none d-md-inline font-weight-500">{{ __('Tentang Kami') }}</div>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
                         <a class="nav-link" id="navbarDropdownDocs" href="{{ route('login') }}">
                             <div class="d-none d-md-inline font-weight-500">{{ __('Login Admin') }}</div>
@@ -132,9 +132,9 @@
                                                     "Map": peta1,
                                                 };
 
-                                                var overlayer = {
-                                                    "Kecamatan" : vector_kecamatan,
-                                                };
+                                                // var overlayer = {
+                                                //     "Kecamatan" : vector_kecamatan,
+                                                // };
 
                                                 L.control.layers(baseMaps, overlayer).addTo(map);
 // ########## LEGEND ########## //

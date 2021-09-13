@@ -7,7 +7,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="home"></i></div>
+                            <div class="page-header-icon"><i data-feather="grid"></i></div>
                             {{ __($title) }}
                         </h1>
                         <div class="page-header-subtitle">Sistem Informasi Geografis Tanaman Pangan Kabupaten Jember</div>
@@ -17,10 +17,8 @@
         </div>
     </header>
     <div class="container mt-n10">
-        <form method="POST" action="/lahan/insert">
-            @csrf
+        <div>
             <div class="card mb-4">
-                <div></div>
                 <div class="card-body">
                     <div class="col-xl-12">
                         <div class="row form-group">
@@ -51,26 +49,25 @@
                                 <p><b>{{ $data->produktivitas }}</b></p>
                             </div>
                         </div>
-                        <div class="row form-group">
+                        <div class="row form-group mb-0">
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="ph">PH</label>
+                                <label class="small mb-1" for="ph">pH</label>
                                 <p><b>{{ $data->ph }}</b></p>
                             </div>
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="suhu">Suhu</label>
+                                <label class="small mb-1" for="suhu">Suhu (°C)</label>
                                 <p><b>{{ $data->suhu }}</b></p>
                             </div>
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="ch">Curah Hujan</label>
+                                <label class="small mb-1" for="ch">Curah Hujan (mm)</label>
                                 <p><b>{{ $data->ch }}</b></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
             <div class="card mb-4">
-                <div class="card-body">
+                <div class="card-body p-0">
                     <div class="align-items-center">
                         <div id="map"></div>
                         <style>
@@ -100,7 +97,7 @@
     // ########## KECAMATAN ########## //
                             var map = L.map('map', {
                                 center: [{{$data->latitude}}, {{$data->longitude}}],
-                                zoom: 12,
+                                zoom: 11,
                                 layers: [peta1, vector_kecamatan]
                             });
                             
@@ -108,9 +105,9 @@
                                 "Map": peta1,
                             };
     
-                            var overlayer = {
-                                "Kecamatan" : vector_kecamatan,
-                            };
+                            // var overlayer = {
+                            //     "Kecamatan" : vector_kecamatan,
+                            // };
     
                             L.control.layers(baseMaps, overlayer).addTo(map);
                             var greenIcon = L.icon({
@@ -155,7 +152,7 @@
                 </div>
                 
             </div>
-        </form>
+        </div>
     </div>
     
     </div>
