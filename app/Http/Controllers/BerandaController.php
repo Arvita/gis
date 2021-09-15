@@ -55,6 +55,10 @@ class BerandaController extends Controller
             'Produksi' => $this->DataKecamatanModel->Produksi($id),
             'Produktivitas' => $this->DataKecamatanModel->Produktivitas($id),
             'Tanaman' => $this->DataKecamatanModel->tanamanbyid($id),
+            'totalph' => $this->DataKecamatanModel->totalph($id),
+            'totalch' => $this->DataKecamatanModel->totalch($id),
+            'totalsuhu' => $this->DataKecamatanModel->totalsuhu($id),
+            'totaldata' => $this->DataKecamatanModel->totaldata($id),
         ];
         return view('layouts.datalahan', $data);
         // echo json_encode($data);

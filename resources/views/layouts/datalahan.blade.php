@@ -82,9 +82,13 @@
                                                             <li class="pb-2"><strong>Luas Panen: </strong> {{ $LuasPanen }} Ha</li>
                                                             <li class="pb-2"><strong>Produksi: </strong> {{ $Produksi }} ton</li>
                                                             <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Kw/Ha</li>
-                                                            <li class="pb-2"><strong>Ph Tanah: </strong> {{ $detaillahan->ph  }} pH</li>
-                                                            <li class="pb-2"><strong>Curah Hujan: </strong> {{ $detaillahan->ch  }} mm</li>
-                                                            <li class="pb-2"><strong>Suhu: </strong> {{ $detaillahan->suhu   }} °C</li>
+                                                            <li class="pb-2"><strong>Ph Tanah Rata Rata: </strong> {{ number_format( $totalph / $totaldata ,2) }} pH</li>
+                                                            <li class="pb-2"><strong>Curah Hujan Rata Rata: </strong> {{ number_format($totalch / $totaldata,2) }} mm</li>
+                                                            <li class="pb-2"><strong>Suhu Rata Rata: </strong> {{ number_format($totalsuhu / $totaldata , 2) }} °C</li>
+                                                            {{-- <li class="pb-2"><strong>Ph Tanah: </strong> {{ $detaillahan->ph  }} pH</li> --}}
+
+                                                            {{-- <li class="pb-2"><strong>Curah Hujan: </strong> {{ $detaillahan->ch  }} mm</li>
+                                                            <li class="pb-2"><strong>Suhu: </strong> {{ $detaillahan->suhu   }} °C</li> --}}
                                                         </ul>
                                                     </div>
                                                 </div>

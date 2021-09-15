@@ -101,4 +101,22 @@ class DataKecamatanModel extends Model
             ->select('lahan.*', 'tanaman.*')->where('id_kecamatan' , $id_kecamatan)
             ->get();
     }
+    public function totalph($id_kecamatan){
+        return DB::table('lahan')
+        ->where('id_kecamatan' ,$id_kecamatan)
+        ->sum('lahan.ph');
+    }
+    public function totalch($id_kecamatan){
+        return DB::table('lahan')
+        ->where('id_kecamatan' ,$id_kecamatan)
+        ->sum('lahan.ch');
+    }
+    public function totalsuhu($id_kecamatan){
+        return DB::table('lahan')
+        ->where('id_kecamatan' ,$id_kecamatan)
+        ->sum('lahan.suhu');
+    }
+    public function totaldata($id_kecamatan){
+        return DB::table('lahan')->where('id_kecamatan' , $id_kecamatan)->count();
+    }
 }

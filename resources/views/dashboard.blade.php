@@ -96,9 +96,9 @@
                     </div>
                     <div class="card-body">
                         <?php 
-                            $padi = number_format( $luaspadi / $luaspanen * 100);
-                            $kedelai = number_format($luaskedelai / $luaspanen * 100);
-                            $jagung = number_format($luasjagung / $luaspanen * 100);
+                            $padi = number_format( $luaspadi / $luaspanen * 100 , 2);
+                            $kedelai = number_format($luaskedelai / $luaspanen * 100 ,2);
+                            $jagung = number_format($luasjagung / $luaspanen * 100 ,2);
                         ?>
                         <h4 class="small">
                             Panen Padi
@@ -410,21 +410,21 @@
                                     <i class="fas fa-circle fa-sm mr-1 text-warning"></i>
                                     Padi
                                 </div>
-                                <div class="font-weight-500 text-dark"><?= number_format($luaspadi !== 0 ?  $luaspadi / $luaspanen * 100 : 0) ?> %</div>
+                                <div class="font-weight-500 text-dark"><?= number_format($luaspadi !== 0 ?  $luaspadi / $luaspanen * 100 : 0 , 2) ?> %</div>
                             </div>
                             <div class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
                                 <div class="mr-3">
                                     <i class="fas fa-circle fa-sm mr-1 text-danger"></i>
                                     Jagung
                                 </div>
-                                <div class="font-weight-500 text-dark"><?=number_format( $luasjagung !== 0 ?  $luasjagung / $luaspanen * 100 : 0) ?> %</div>
+                                <div class="font-weight-500 text-dark"><?=number_format( $luasjagung !== 0 ?  $luasjagung / $luaspanen * 100 : 0 ,2) ?> %</div>
                             </div>
                             <div class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
                                 <div class="mr-3">
                                     <i class="fas fa-circle fa-sm mr-1 text-green"></i>
                                    Kedelai
                                 </div>
-                                <div class="font-weight-500 text-dark"><?= number_format($luaskedelai !== 0 ?  $luaskedelai / $luaspanen * 100 : 0) ?> %</div>
+                                <div class="font-weight-500 text-dark"><?= number_format($luaskedelai !== 0 ?  $luaskedelai / $luaspanen * 100 : 0 ,2) ?> %</div>
                             </div>
                         </div>
                     </div>
