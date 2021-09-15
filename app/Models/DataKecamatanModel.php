@@ -40,7 +40,6 @@ class DataKecamatanModel extends Model
     public function LuasLahan($id_kecamatan)
     {
         return DB::table('lahan')
-
             ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'lahan.id_kecamatan')
             ->select('lahan.*', 'kecamatan.*')
             ->where('kecamatan.id_kecamatan', '=', $id_kecamatan)
@@ -73,27 +72,33 @@ class DataKecamatanModel extends Model
             ->where('kecamatan.id_kecamatan', '=', $id_kecamatan)
             ->sum('lahan.produktivitas');
     }
-    public function LuasLahanTotal()
+    public function LuasPanenTotal()
     {
         return DB::table('lahan')
-            ->sum('lahan.luas_lahan');
+            ->sum('lahan.luas_panen');
     }
     public function LuasPadi()
     {
         return DB::table('lahan')
             ->where('id_tanaman' , 4)
-            ->sum('lahan.luas_lahan');
+            ->sum('lahan.luas_panen');
     }
     public function LuasJagung()
     {
         return DB::table('lahan')
             ->where('id_tanaman' , 5)
-            ->sum('lahan.luas_lahan');
+            ->sum('lahan.luas_panen');
     }
     public function LuasKedelai()
     {
         return DB::table('lahan')
             ->where('id_tanaman' , 6)
-            ->sum('lahan.luas_lahan');
+            ->sum('lahan.luas_panen');
+    }
+    public function tanamanbyid($id_kecamatan){
+        return DB::table('lahan')  
+            ->join('tanaman', 'tanaman.id_tanaman', '=', 'lahan.id_tanaman')
+            ->select('lahan.*', 'tanaman.*')->where('id_kecamatan' , $id_kecamatan)
+            ->get();
     }
 }

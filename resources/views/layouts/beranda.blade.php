@@ -116,7 +116,15 @@
                                                             fillOpacity : 1.0,
                                                             weight: 1,
                                                         },
-                                                    }).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(vector_kecamatan);
+                                                    }).addTo(vector_kecamatan);
+                                                    // L.geoJSON(<?= $data->geojson ?>,{
+                                                    //     style : {
+                                                    //         color : 'black',
+                                                    //         fillColor : '{{ $data->warna }}',
+                                                    //         fillOpacity : 1.0,
+                                                    //         weight: 1,
+                                                    //     },
+                                                    // }).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(vector_kecamatan);
                                                 @endforeach                                           
 // ########## KECAMATAN ########## //
                                                 var map = L.map('map', {
@@ -124,21 +132,21 @@
                                                     zoom: 10,
                                                     layers: [peta1, vector_kecamatan],
                                                 });
-                                                @foreach ($pinMaps as $data)
+                                                @foreach ($kecamatan as $data)
                                                 // var greenIcon = L.AwesomeMarkers.icon({
                                                 //     icon: 'coffee',
                                                 //     markerColor: 'red'
                                                 // });
-                                                var greenIcon = L.icon({
-                                                    iconUrl: `http://127.0.0.1:8000/{{$data->logo}}`,
+                                                // var greenIcon = L.icon({
+                                                //     iconUrl: ``,
                         
-                                                    iconSize:     [38, 95], // size of the icon
-                                                    shadowSize:   [50, 64], // size of the shadow
-                                                    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-                                                    shadowAnchor: [4, 62],  // the same for the shadow
-                                                    popupAnchor:  [-3, -76]
-                                                });
-                                                var marker = L.marker([{{ $data->latitude }} , {{ $data->longitude }}] , {icon: greenIcon}).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br>Luas Lahan: {{ $data->luas_lahan }} Kw/Ha<br>Tanaman: {{ $data->nama_tanaman }}<br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/lahan_detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(map);
+                                                //     iconSize:     [38, 95], // size of the icon
+                                                //     shadowSize:   [50, 64], // size of the shadow
+                                                //     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                                                //     shadowAnchor: [4, 62],  // the same for the shadow
+                                                //     popupAnchor:  [-3, -76]
+                                                // });
+                                                var marker = L.marker([{{ $data->latitude }} , {{ $data->longitude }}]).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/lahan_detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(map);
                                                 @endforeach   
                                                 var baseMaps = {
                                                     "Map": peta1,
@@ -203,8 +211,8 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Lahan Produksi Kab. Jember') }}</div>
-                                                <div class="text-lg font-weight-bold">{{ $luaslahan }} Ha</div>
+                                                <div class="text-white-75 small">{{ __('Total Panen Kab. Jember') }}</div>
+                                                <div class="text-lg font-weight-bold">{{ $luaspanen }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/total_lahan.svg"/>
                                         </div>
@@ -220,7 +228,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Lahan Padi') }}</div>
+                                                <div class="text-white-75 small">{{ __('Total Panen Padi') }}</div>
                                                 <div class="text-lg font-weight-bold">{{ $luaspadi }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/padi.svg"/>
@@ -237,7 +245,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Lahan Jagung') }}</div>
+                                                <div class="text-white-75 small">{{ __('Total Panen Jagung') }}</div>
                                                 <div class="text-lg font-weight-bold">{{ $luasjagung }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/jagung.svg"/>
@@ -254,7 +262,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Lahan Kedelai') }}</div>
+                                                <div class="text-white-75 small">{{ __('Total Panen Kedelai') }}</div>
                                                 <div class="text-lg font-weight-bold">{{ $luaskedelai }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/kedelai.svg"/>

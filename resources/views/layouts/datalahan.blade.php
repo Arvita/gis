@@ -149,23 +149,7 @@
                                                 }
 
                                                 var legend = L.control({position: 'bottomright'});
-                                                legend.onAdd = function (map) {
-                                                    var div = L.DomUtil.create('div', 'info legend'),
-                                                    grades = ['Padi', 'Jagung', 'Kedelai'],
-                                                    labels = [],
-                                                    from, to;
-
-                                                    labels.push(
-                                                        @foreach ($tanaman as $data)
-                                                            '<i style="background:{{ $data->warna }}' + '"></i> ' + '{{ $data->nama_tanaman }}',
-                                                           
-                                                        @endforeach   
-                                                    );
-                                                    
-                                                    div.innerHTML = labels.join('<br>');
-                                                    return div;
-                                                };
-                                                legend.addTo(map);
+                                              
 // ########## LEGEND ########## //
                                             </script>
                                         </div>
@@ -174,7 +158,51 @@
                             </div>
                         </div>
                         
-                        
+                         <div class="row">
+                            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+                                <div class="card card-header-actions mx-auto">
+                                    <div class="card-header">
+                                        Data Setiap Kecamatan
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="datatable table-responsive">
+                                            <table class="table table-striped table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No.</th>
+                                                        <th>Tanaman</th>
+                                                        <th>Luas Lahan (Ha)</th>
+                                                        <th>Luas Produksi (Ha)</th>
+                                                        <th>Produksi (ton)</th>
+                                                        <th>Produktivitas (Ku/Ha)</th>
+                                                        <th>pH</th>
+                                                        <th>Suhu</th>
+                                                        <th>Curah Hujan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php $no = 1;?>
+                                                @foreach ($Tanaman as $data)
+                                                    <tr>
+                                                        <td class="text-center">{{ $no++ }}</td>
+                                                        <td>{{ $data->nama_tanaman }}</td>
+                                                        <td>{{ $data->luas_lahan }}</td>
+                                                        <td>{{ $data->luas_panen }}</td>
+                                                        <td>{{ $data->produksi }}</td>
+                                                        <td>{{ $data->produktivitas }}</td>
+                                                        <td>{{ $data->ph }}</td>
+                                                        <td>{{ $data->suhu }}</td>
+                                                        <td>{{ $data->ch }}</td>
+                                                    
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </main>
                 <footer class="footer mt-auto footer-light">
