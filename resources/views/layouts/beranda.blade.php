@@ -138,7 +138,7 @@
                                                     shadowAnchor: [4, 62],  // the same for the shadow
                                                     popupAnchor:  [-3, -76]
                                                 });
-                                                var marker = L.marker([{{ $data->latitude }} , {{ $data->longitude }}] , {icon: greenIcon}).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br>Luas Lahan: {{ $data->luas_lahan }} Ku/Ha<br>Tanaman: {{ $data->nama_tanaman }}<br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/lahan_detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(map);
+                                                var marker = L.marker([{{ $data->latitude }} , {{ $data->longitude }}] , {icon: greenIcon}).bindPopup('<b class="text-sm">{{ $data->nama_kecamatan }}</b><br>Luas Lahan: {{ $data->luas_lahan }} Kw/Ha<br>Tanaman: {{ $data->nama_tanaman }}<br><a class="btn btn-sm btn-primary text-white mt-2" href="/home/lahan_detail/{{ $data->id_kecamatan }}">Detail</a>').addTo(map);
                                                 @endforeach   
                                                 var baseMaps = {
                                                     "Map": peta1,

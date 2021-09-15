@@ -45,7 +45,7 @@
                                 <p><b>{{ $data->produksi }}</b></p>
                             </div>
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="produktivitas">Produktivitas (Ku/Ha)</label>
+                                <label class="small mb-1" for="produktivitas">Produktivitas (Kw/Ha)</label>
                                 <p><b>{{ $data->produktivitas }}</b></p>
                             </div>
                         </div>

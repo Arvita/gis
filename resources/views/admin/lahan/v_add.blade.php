@@ -80,7 +80,7 @@
                                 </small>
                             </div>
                             <div class="col-lg-4">
-                                <label class="small mb-1" for="produktivitas">Produktivitas (Ku/Ha)</label>
+                                <label class="small mb-1" for="produktivitas">Produktivitas (Kw/Ha)</label>
                                 <input class="form-control" id="produktivitas" name="produktivitas" type="text" required placeholder="Masukkan Produktivitas" />
                                 <small class="text-danger" role="alert">
                                     @error('produktivitas')

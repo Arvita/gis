@@ -32,7 +32,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center" width="50px">No.</th>
-                                <th>Kelurahan</th>
+                                <th>Kecamatan</th>
                                 <th>Tanaman</th>
                                 <th class="text-center" width="100px">Aksi</th>
                             </tr>

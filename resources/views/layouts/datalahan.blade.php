@@ -81,7 +81,7 @@
                                                             <li class="pb-2"><strong>Luas Lahan: </strong> {{ $LuasLahan }} Ha</li>
                                                             <li class="pb-2"><strong>Luas Panen: </strong> {{ $LuasPanen }} Ha</li>
                                                             <li class="pb-2"><strong>Produksi: </strong> {{ $Produksi }} ton</li>
-                                                            <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Ku/Ha</li>
+                                                            <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Kw/Ha</li>
                                                             <li class="pb-2"><strong>Ph Tanah: </strong> {{ $detaillahan->ph  }} pH</li>
                                                             <li class="pb-2"><strong>Curah Hujan: </strong> {{ $detaillahan->ch  }} mm</li>
                                                             <li class="pb-2"><strong>Suhu: </strong> {{ $detaillahan->suhu   }} °C</li>
@@ -122,7 +122,7 @@
                                                             fillOpacity : 1.0,
                                                             weight: 1,
                                                         },
-                                                    }).bindPopup('<b class="text-sm">{{ $detail->nama_kecamatan }}</b><br>Padi: 123 Ku/Ha<br>Jagung: 456 Ku/Ha<br>Kedelai: 789 Ku/Ha<br>').addTo(vector_kecamatan);
+                                                    }).bindPopup('<b class="text-sm">{{ $detail->nama_kecamatan }}</b><br>Padi: 123 Kw/Ha<br>Jagung: 456 Kw/Ha<br>Kedelai: 789 Kw/Ha<br>').addTo(vector_kecamatan);
                                                 // @endforeach                                           
 // ########## KECAMATAN ########## //
                                                 var map = L.map('map', {

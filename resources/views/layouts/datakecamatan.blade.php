@@ -81,7 +81,7 @@
                                                             <li class="pb-2"><strong>Luas Lahan: </strong> {{ $LuasLahan }} Ha</li>
                                                             <li class="pb-2"><strong>Luas Panen: </strong> {{ $LuasPanen }} Ha</li>
                                                             <li class="pb-2"><strong>Produksi: </strong> {{ $Produksi }} ton</li>
-                                                            <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Ku/Ha</li>
+                                                            <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Kw/Ha</li>
                                                                   </ul>
                                                     </div>
                                                 </div>
