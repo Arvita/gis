@@ -139,7 +139,7 @@
                                                             fillOpacity : 1.0,
                                                             weight: 1,
                                                         },
-                                                    }).bindPopup('<b class="text-sm">{{ $detail->nama_kecamatan }}</b><br>Padi: 123 Kw/Ha<br>Jagung: 456 Kw/Ha<br>Kedelai: 789 Kw/Ha<br>').addTo(vector_kecamatan);
+                                                    }).addTo(vector_kecamatan);
                                                 // @endforeach                                           
 // ########## KECAMATAN ########## //
                                                 var map = L.map('map', {
