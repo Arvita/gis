@@ -28,11 +28,15 @@ class DashboardController extends Controller
     {
         $data = [
             'title' => 'Dashboard',
-
             'luaspanen' => $this->DataKecamatanModel->LuasPanenTotal(),
             'luaspadi' => $this->DataKecamatanModel->LuasPadi(),
             'luasjagung' => $this->DataKecamatanModel->LuasJagung(),
             'luaskedelai' => $this->DataKecamatanModel->LuasKedelai(),
+
+            'totaldatatanaman' => $this->DataKecamatanModel->totaldatatanaman(),
+            'luaspaditanaman' => $this->DataKecamatanModel->luaspaditanaman(),
+            'luasjagungtanaman' => $this->DataKecamatanModel->luasjagungtanaman(),
+            'luaskedelaitanaman' => $this->DataKecamatanModel->luaskedelaitanaman(),
         ];
         return view('dashboard', $data);
     }

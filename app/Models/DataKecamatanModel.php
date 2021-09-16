@@ -95,6 +95,18 @@ class DataKecamatanModel extends Model
             ->where('id_tanaman' , 6)
             ->sum('lahan.luas_panen');
     }
+    public function totaldatatanaman(){
+        return DB::table('lahan')->count();
+    }
+    public function luaspaditanaman(){
+        return DB::table('lahan')->where('id_tanaman' , 4)->count();
+    }
+    public function luasjagungtanaman(){
+        return DB::table('lahan')->where('id_tanaman' , 5)->count();
+    }
+    public function luaskedelaitanaman(){
+        return DB::table('lahan')->where('id_tanaman' , 6)->count();
+    }
     public function tanamanbyid($id_kecamatan){
         return DB::table('lahan')  
             ->join('tanaman', 'tanaman.id_tanaman', '=', 'lahan.id_tanaman')
@@ -119,4 +131,5 @@ class DataKecamatanModel extends Model
     public function totaldata($id_kecamatan){
         return DB::table('lahan')->where('id_kecamatan' , $id_kecamatan)->count();
     }
+   
 }

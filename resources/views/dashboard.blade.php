@@ -398,10 +398,10 @@
         </div> --}}
         <div class="row">
             
-            <div class="col-xxl-12 col-lg-12 col-md-12 mb-4">
+            <div class="col-xxl-6 col-lg-6 col-md-6 mb-4">
                 <!-- Pie chart with legend example-->
                 <div class="card h-100">
-                    <div class="card-header">Grafik Perbandingan</div>
+                    <div class="card-header">Grafik Perbandingan Luas Panen</div>
                     <div class="card-body">
                         <div class="chart-pie mb-4"><canvas id="chart" width="100%" height="50"></canvas></div>
                         <div class="list-group list-group-flush">
@@ -430,6 +430,38 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xxl-6 col-lg-6 col-md-6 mb-4">
+                <!-- Pie chart with legend example-->
+                <div class="card h-100">
+                    <div class="card-header">Grafik Perbandingan Tanaman Di Kabupaten Jember</div>
+                    <div class="card-body">
+                        <div class="chart-pie mb-4"><canvas id="chartanamant" width="100%" height="50"></canvas></div>
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
+                                <div class="mr-3">
+                                    <i class="fas fa-circle fa-sm mr-1 text-warning"></i>
+                                    Padi
+                                </div>
+                                <div class="font-weight-500 text-dark"><?= number_format($luaspaditanaman !== 0 ?  $luaspaditanaman / $totaldatatanaman * 100 : 0 , 2) ?> %</div>
+                            </div>
+                            <div class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
+                                <div class="mr-3">
+                                    <i class="fas fa-circle fa-sm mr-1 text-danger"></i>
+                                    Jagung
+                                </div>
+                                <div class="font-weight-500 text-dark"><?=number_format( $luasjagungtanaman !== 0 ?  $luasjagungtanaman / $totaldatatanaman * 100 : 0 ,2) ?> %</div>
+                            </div>
+                            <div class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
+                                <div class="mr-3">
+                                    <i class="fas fa-circle fa-sm mr-1 text-green"></i>
+                                   Kedelai
+                                </div>
+                                <div class="font-weight-500 text-dark"><?= number_format($luaskedelaitanaman !== 0 ?  $luaskedelaitanaman / $totaldatatanaman * 100 : 0 ,2) ?> %</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
            
         </div> 
     </div>
@@ -453,6 +485,55 @@ var myPieChart = new Chart(ctx, {
         labels: ["Padi", "Jagung", "Kedelai"],
         datasets: [{
             data: [padi, jagung,kedelai],
+            backgroundColor: [
+                "rgb(255, 165, 0)",
+                "rgb(255, 0, 0)",
+                "rgba(0, 172, 105, 1)",
+            ],
+            hoverBackgroundColor: [
+                "rgb(255, 165, 0)",
+                "rgb(255, 0, 0)",
+                "rgba(0, 172, 105, 1)",
+            ],
+            hoverBorderColor: "rgba(234, 236, 244, 1)"
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        tooltips: {
+            backgroundColor: "rgb(255,255,255)",
+            bodyFontColor: "#858796",
+            borderColor: "#dddfeb",
+            borderWidth: 1,
+            xPadding: 15,
+            yPadding: 15,
+            displayColors: false,
+            caretPadding: 10
+        },
+        legend: {
+            display: false
+        },
+        cutoutPercentage: 80
+    }
+});
+
+
+
+var paditanaman = {{ $luaspaditanaman }} / {{ $totaldatatanaman }} * 100;
+var kedelaitanaman = {{ $luaskedelaitanaman }} / {{ $totaldatatanaman }} * 100;
+var jagungtanaman = {{ $luasjagungtanaman }} / {{ $totaldatatanaman }} * 100;
+    (Chart.defaults.global.defaultFontFamily = "Metropolis"),
+'-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = "#858796";
+
+// Pie Chart Example
+var ctx = document.getElementById("chartanamant");
+var myPieChart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+        labels: ["Padi", "jagung", "Kedelai"],
+        datasets: [{
+            data: [paditanaman, jagungtanaman,kedelaitanaman],
             backgroundColor: [
                 "rgb(255, 165, 0)",
                 "rgb(255, 0, 0)",
