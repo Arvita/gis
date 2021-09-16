@@ -70,7 +70,7 @@
                             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
                                 <div class="card">
                                     <div class="card-header">
-                                        Data Nama Kecamatan
+                                        Data Statistik
                                     </div>
                                     <div class="card-body">
                                         <div class="row">

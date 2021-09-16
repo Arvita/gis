@@ -129,7 +129,7 @@
 // ########## KECAMATAN ########## //
                                                 var map = L.map('map', {
                                                     center: [-8.264371593833262, 113.6321026467762],
-                                                    zoom: 10,
+                                                    zoom: 11,
                                                     layers: [peta1, vector_kecamatan],
                                                 });
                                                 @foreach ($kecamatan as $data)
@@ -152,10 +152,10 @@
                                                     "Map": peta1,
                                                 };
 
-                                                // var overlayer = {
-                                                //     "Kecamatan" : vector_kecamatan,
-                                                //     "Kelurahan": vector_kelurahan
-                                                // };
+                                                var overlayer = {
+                                                    "Kecamatan" : vector_kecamatan,
+                                                    // "Kelurahan": vector_kelurahan
+                                                };
 
                                                 L.control.layers(baseMaps, overlayer).addTo(map);
 // ########## KELURAHAN ########## //
@@ -190,7 +190,6 @@
                                                     labels.push(
                                                         @foreach ($tanaman as $data)
                                                             '<i style="background:{{ $data->warna }}' + '"></i> ' + '{{ $data->nama_tanaman }}',
-                                                           
                                                         @endforeach   
                                                     );
                                                     

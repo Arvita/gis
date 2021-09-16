@@ -28,6 +28,7 @@ class DashboardController extends Controller
     {
         $data = [
             'title' => 'Dashboard',
+            'tanaman' => $this->DataKecamatanModel->DataTanaman(),
             'luaspanen' => $this->DataKecamatanModel->LuasPanenTotal(),
             'luaspadi' => $this->DataKecamatanModel->LuasPadi(),
             'luasjagung' => $this->DataKecamatanModel->LuasJagung(),

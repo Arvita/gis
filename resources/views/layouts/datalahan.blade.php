@@ -74,21 +74,34 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-lg-10 pt-4 pt-lg-0 content">
+                                            <div class="col-lg-12 pt-4 pt-lg-0 content">
                                                 <div class="row">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-12">
                                                         <ul class="list-unstyled">
-                                                            <li class="pb-2"><strong>Luas Lahan: </strong> {{ $LuasLahan }} Ha</li>
+                                                            {{-- <li class="pb-2"><strong>Luas Lahan: </strong> {{ $LuasLahan }} Ha</li> --}}
                                                             <li class="pb-2"><strong>Luas Panen: </strong> {{ $LuasPanen }} Ha</li>
                                                             <li class="pb-2"><strong>Produksi: </strong> {{ $Produksi }} ton</li>
                                                             <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Kw/Ha</li>
-                                                            <li class="pb-2"><strong>Ph Tanah Rata Rata: </strong> {{ number_format( $totalph / $totaldata ,2) }} pH</li>
+                                                            <hr>
+                                                            <li class="pb-2"><strong>Suhu Rata-Rata: </strong>25.99 °C</li>
+                                                            <li class="pb-2"><strong>pH Tanah: </strong>7.20</li>
+                                                            <li class="pb-2"><strong>Drainase: </strong>Baik</li>
+                                                            <li class="pb-2"><strong>Tekstur Tanah: </strong>Agak Kasar (Lempung Berpasir)</li>
+                                                            {{-- <li class="pb-2"><strong>Ph Tanah Rata Rata: </strong> {{ number_format( $totalph / $totaldata ,2) }} pH</li>
                                                             <li class="pb-2"><strong>Curah Hujan Rata Rata: </strong> {{ number_format($totalch / $totaldata,2) }} mm</li>
-                                                            <li class="pb-2"><strong>Suhu Rata Rata: </strong> {{ number_format($totalsuhu / $totaldata , 2) }} °C</li>
+                                                            <li class="pb-2"><strong>Suhu Rata Rata: </strong> {{ number_format($totalsuhu / $totaldata , 2) }} °C</li> --}}
                                                             {{-- <li class="pb-2"><strong>Ph Tanah: </strong> {{ $detaillahan->ph  }} pH</li> --}}
 
                                                             {{-- <li class="pb-2"><strong>Curah Hujan: </strong> {{ $detaillahan->ch  }} mm</li>
                                                             <li class="pb-2"><strong>Suhu: </strong> {{ $detaillahan->suhu   }} °C</li> --}}
+                                                            <p>Dari data diatas maka rekomendasi tanaman pangan yang cocok ditanam di {{ $detail->nama_kecamatan }} adalah:
+                                                                <br>
+                                                                1. Tanaman Jagung (Zea mays)
+                                                                <br>
+                                                                2. Tanaman Kedelai (Glycine max.)
+                                                                <br>
+                                                                3. Tanaman Padi (Oryza sativa)
+                                                                <br></p>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -98,7 +111,7 @@
                                 </div>
                             </div>
                             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
-                                <div class="card h-100">
+                                <div class="card">
                                     <div class="card-map h-100 d-flex flex-column justify-content-center">
                                         <div class="align-items-center">
                                             <div id="map"></div>
@@ -166,7 +179,7 @@
                             <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
                                 <div class="card card-header-actions mx-auto">
                                     <div class="card-header">
-                                        Data Setiap Kecamatan
+                                        Data Badan Pusat Statistik
                                     </div>
                                     <div class="card-body">
                                         <div class="datatable table-responsive">
@@ -179,9 +192,6 @@
                                                         <th>Luas Produksi (Ha)</th>
                                                         <th>Produksi (ton)</th>
                                                         <th>Produktivitas (Ku/Ha)</th>
-                                                        <th>pH</th>
-                                                        <th>Suhu</th>
-                                                        <th>Curah Hujan</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -194,9 +204,7 @@
                                                         <td>{{ $data->luas_panen }}</td>
                                                         <td>{{ $data->produksi }}</td>
                                                         <td>{{ $data->produktivitas }}</td>
-                                                        <td>{{ $data->ph }}</td>
-                                                        <td>{{ $data->suhu }}</td>
-                                                        <td>{{ $data->ch }}</td>
+                                                        
                                                     
                                                     </tr>
                                                 @endforeach
