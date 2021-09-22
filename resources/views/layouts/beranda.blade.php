@@ -153,7 +153,7 @@
                                                 };
 
                                                 var overlayer = {
-                                                    "Kecamatan" : vector_kecamatan,
+                                                    // "Kecamatan" : vector_kecamatan,
                                                     // "Kelurahan": vector_kelurahan
                                                 };
 
@@ -210,7 +210,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Panen Kab. Jember') }}</div>
+                                                <div class="text-white-75 small">{{ __('Total Luas Panen Kab. Jember') }}</div>
                                                 <div class="text-lg font-weight-bold">{{ $luaspanen }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/total_lahan.svg"/>
@@ -227,7 +227,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Panen Padi') }}</div>
+                                                <div class="text-white-75 small">{{ __('Total Luas Panen Padi') }}</div>
                                                 <div class="text-lg font-weight-bold">{{ $luaspadi }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/padi.svg"/>
@@ -244,7 +244,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Panen Jagung') }}</div>
+                                                <div class="text-white-75 small">{{ __('Total Luas Panen Jagung') }}</div>
                                                 <div class="text-lg font-weight-bold">{{ $luasjagung }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/jagung.svg"/>
@@ -261,7 +261,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="mr-3">
-                                                <div class="text-white-75 small">{{ __('Total Panen Kedelai') }}</div>
+                                                <div class="text-white-75 small">{{ __('Total Luas Panen Kedelai') }}</div>
                                                 <div class="text-lg font-weight-bold">{{ $luaskedelai }} Ha</div>
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/kedelai.svg"/>

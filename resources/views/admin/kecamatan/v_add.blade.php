@@ -36,8 +36,8 @@
                             <div class="col-lg-6">
                                 <label class="small mb-1" for="warna">Warna Background Kecamatan (Hexcode)</label>
                                 <input class="form-control" id="warna" name="warna" type="text" placeholder="Masukkan Hexcode Warna" />
-                                <input class="form-control" id="lat" name="lat" type="text" placeholder="Masukkan Hexcode Warna" hidden required />
-                                <input class="form-control" id="long" name="long" type="text" placeholder="Masukkan Hexcode Warna" hidden required />
+                                <input class="form-control" id="lat" name="lat" type="text" placeholder="latitude"  required />
+                                <input class="form-control" id="long" name="long" type="text" placeholder="longitude"  required />
                                 <small class="text-danger" role="alert">
                                     @error('warna')
                                         {{ $message }}

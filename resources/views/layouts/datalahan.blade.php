@@ -70,7 +70,7 @@
                             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
                                 <div class="card">
                                     <div class="card-header">
-                                        Data Nama Kecamatan
+                                        Detail Data Kecamatan
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -94,14 +94,15 @@
 
                                                             {{-- <li class="pb-2"><strong>Curah Hujan: </strong> {{ $detaillahan->ch  }} mm</li>
                                                             <li class="pb-2"><strong>Suhu: </strong> {{ $detaillahan->suhu   }} °C</li> --}}
-                                                            <p>Dari data diatas maka rekomendasi tanaman pangan yang cocok ditanam di {{ $detail->nama_kecamatan }} adalah:
+                                                            <p>Berdasarkan salah satu lahan yang telah diteliti untuk diambil karakteristik lahannya, maka peringkat rekomendasi tanaman pangan yang cocok ditanam di {{ $detail->nama_kecamatan }} adalah:
                                                                 <br>
                                                                 1. Tanaman Jagung (Zea mays)
                                                                 <br>
                                                                 2. Tanaman Kedelai (Glycine max.)
                                                                 <br>
                                                                 3. Tanaman Padi (Oryza sativa)
-                                                                <br></p>
+                                                                <br>
+                                                            </p>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -188,10 +189,10 @@
                                                     <tr>
                                                         <th>No.</th>
                                                         <th>Tanaman</th>
-                                                        <th>Luas Lahan (Ha)</th>
-                                                        <th>Luas Produksi (Ha)</th>
+                                                        {{-- <th>Luas Lahan (Ha)</th> --}}
+                                                        <th>Luas Panen (Ha)</th>
                                                         <th>Produksi (ton)</th>
-                                                        <th>Produktivitas (Ku/Ha)</th>
+                                                        <th>Produktifitas (Kw/Ha)</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -200,7 +201,7 @@
                                                     <tr>
                                                         <td class="text-center">{{ $no++ }}</td>
                                                         <td>{{ $data->nama_tanaman }}</td>
-                                                        <td>{{ $data->luas_lahan }}</td>
+                                                        {{-- <td>{{ $data->luas_lahan }}</td> --}}
                                                         <td>{{ $data->luas_panen }}</td>
                                                         <td>{{ $data->produksi }}</td>
                                                         <td>{{ $data->produktivitas }}</td>
