@@ -28,7 +28,7 @@
     <body class="nav-fixed">
         <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
             <div class="container">
-                <img class="img-logo ml-3" src="{{ asset('admin') }}/assets/img/logo_jti.svg"/>
+                <img class="img-logo ml-2" src="{{ asset('admin') }}/assets/img/logo_jti.svg"/>
                 <ul class="navbar-nav align-items-center ml-auto">
                     @yield('head')
                     <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
@@ -75,8 +75,10 @@
                                             <div id="map"></div>
                                             <style>
                                                 #map { width: 100%; height: 60vh; }
-                                                .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
-                                                .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+                                                .info { padding: 6px 8px; font: 12px/14px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; }
+                                                .info h4 { margin: 0 0 5px; color: #777; }
+                                                .legend {  text-align: left; line-height: 18px; color: #555; }
+                                                .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
                                             </style>
                                             <script>
                                                 
@@ -129,7 +131,7 @@
 // ########## KECAMATAN ########## //
                                                 var map = L.map('map', {
                                                     center: [-8.264371593833262, 113.6321026467762],
-                                                    zoom: 11,
+                                                    zoom: 10,
                                                     layers: [peta1, vector_kecamatan],
                                                 });
                                                 @foreach ($kecamatan as $data)
@@ -174,15 +176,15 @@
 // ########## KELURAHAN ########## //
 // ########## LEGEND ########## //              
                                                 function getColor(d) {
-                                                    return d == 'Padi' ? '#f4a100' :
+                                                    return  d == 'Padi' ? '#f4a100' :
                                                             d == 'Jagung'  ? '#f76400' :
                                                             d == 'Kedelai'  ? '#00ac69' :
-                                                                        '#000000';
+                                                            '#000000';
                                                 }
 
                                                 var legend = L.control({position: 'bottomright'});
                                                 legend.onAdd = function (map) {
-                                                    var div = L.DomUtil.create('div', 'info legend'),
+                                                    var div = L.DomUtil.create('div', 'info legend leaflet-control br {clear: both;}'),
                                                     grades = ['Padi', 'Jagung', 'Kedelai'],
                                                     labels = [],
                                                     from, to;
@@ -216,10 +218,6 @@
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/total_lahan.svg"/>
                                         </div>
                                     </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">{{ __('Lihat Detail Data') }}</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-xxl-3 col-lg-6">
@@ -232,10 +230,6 @@
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/padi.svg"/>
                                         </div>
-                                    </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">{{ __('Lihat Detail Data') }}</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
@@ -250,10 +244,6 @@
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/jagung.svg"/>
                                         </div>
                                     </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">{{ __('Lihat Detail Data') }}</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-xxl-3 col-lg-6">
@@ -266,10 +256,6 @@
                                             </div>
                                             <img class="feather-xl text-white-50" src="{{ asset('admin') }}/assets/img/kedelai.svg"/>
                                         </div>
-                                    </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">{{ __('Lihat Detail Data') }}</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>

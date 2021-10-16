@@ -257,7 +257,7 @@ img {
 }
 
 .img-logo {
-    width: 25rem;
+    width: 18rem;
     height: auto;
 }
 
@@ -19442,7 +19442,7 @@ body {
 }
 .page-header .page-header-contentUser .page-header-title {
     line-height: normal;
-    font-size: 2.25rem;
+    font-size: 1.75rem;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -19454,7 +19454,7 @@ body {
     display: inline-flex;
 }
 .page-header .page-header-contentUser .page-header-title .page-header-logo {
-    width: 3.5rem;
+    width: 2.5rem;
     display: inline-flex;
 }
 .page-header .page-header-contentUser .page-header-subtitle {

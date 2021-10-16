@@ -38,9 +38,12 @@ class KecamatanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function index()
     {
-        //
+        return response()->json([
+            'message' => 'success',
+            'response' => 'berhasil Update data'
+        ], 200);
     }
 
     /**
