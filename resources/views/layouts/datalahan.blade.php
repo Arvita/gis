@@ -29,6 +29,11 @@
                 <ul class="navbar-nav align-items-center ml-auto">
                     @yield('head')
                     <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
+                        <a class="nav-link" id="navbarDropdownDocs" href="https://spk.devliffe.com">
+                            <div class="d-none d-md-inline font-weight-500">{{ __('DSS') }}</div>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
                         <a class="nav-link" id="navbarDropdownDocs" href="{{ route('beranda')}}">
                             <div class="d-none d-md-inline font-weight-500">{{ __('Peta Jember') }}</div>
                         </a>
@@ -79,14 +84,15 @@
                                                     <div class="col-12">
                                                         <ul class="list-unstyled">
                                                             {{-- <li class="pb-2"><strong>Luas Lahan: </strong> {{ $LuasLahan }} Ha</li> --}}
+                                                         
                                                             <li class="pb-2"><strong>Luas Panen: </strong> {{ $LuasPanen }} Ha</li>
                                                             <li class="pb-2"><strong>Produksi: </strong> {{ $Produksi }} ton</li>
                                                             <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Kw/Ha</li>
                                                             <hr>
-                                                            <li class="pb-2"><strong>Suhu Rata-Rata: </strong>25.99 °C</li>
+                                                            {{-- <li class="pb-2"><strong>Suhu Rata-Rata: </strong>25.99 °C</li>
                                                             <li class="pb-2"><strong>pH Tanah: </strong>7.20</li>
                                                             <li class="pb-2"><strong>Drainase: </strong>Baik</li>
-                                                            <li class="pb-2"><strong>Tekstur Tanah: </strong>Agak Kasar (Lempung Berpasir)</li>
+                                                            <li class="pb-2"><strong>Tekstur Tanah: </strong>Agak Kasar (Lempung Berpasir)</li> --}}
                                                             {{-- <li class="pb-2"><strong>Ph Tanah Rata Rata: </strong> {{ number_format( $totalph / $totaldata ,2) }} pH</li>
                                                             <li class="pb-2"><strong>Curah Hujan Rata Rata: </strong> {{ number_format($totalch / $totaldata,2) }} mm</li>
                                                             <li class="pb-2"><strong>Suhu Rata Rata: </strong> {{ number_format($totalsuhu / $totaldata , 2) }} °C</li> --}}
@@ -94,7 +100,7 @@
 
                                                             {{-- <li class="pb-2"><strong>Curah Hujan: </strong> {{ $detaillahan->ch  }} mm</li>
                                                             <li class="pb-2"><strong>Suhu: </strong> {{ $detaillahan->suhu   }} °C</li> --}}
-                                                            <p>Berdasarkan salah satu lahan yang telah diteliti untuk diambil karakteristik lahannya, maka peringkat rekomendasi tanaman pangan yang cocok ditanam di {{ $detail->nama_kecamatan }} adalah:
+                                                            {{-- <p>Berdasarkan salah satu lahan yang telah diteliti untuk diambil karakteristik lahannya, maka peringkat rekomendasi tanaman pangan yang cocok ditanam di {{ $detail->nama_kecamatan }} adalah:
                                                                 <br>
                                                                 1. Tanaman Jagung (Zea mays)
                                                                 <br>
@@ -102,7 +108,7 @@
                                                                 <br>
                                                                 3. Tanaman Padi (Oryza sativa)
                                                                 <br>
-                                                            </p>
+                                                            </p> --}}
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -169,6 +175,11 @@
                                                 var legend = L.control({position: 'bottomright'});
                                               
 // ########## LEGEND ########## //
+
+
+                                                // fetch('https://spk.devliffe.com/API/output_api?id_kecamatan=27')
+                                                //                 .then(response => console.log(response))
+                                                //                 .then(data => console.log(data));
                                             </script>
                                         </div>
                                     </div>
@@ -188,23 +199,22 @@
                                                 <thead>
                                                     <tr>
                                                         <th>No.</th>
-                                                        <th>Tanaman</th>
+                                                        <th>Nama Lahan</th>
                                                         {{-- <th>Luas Lahan (Ha)</th> --}}
-                                                        <th>Luas Panen (Ha)</th>
-                                                        <th>Produksi (ton)</th>
-                                                        <th>Produktifitas (Kw/Ha)</th>
+                                                        <th>Suhu</th>
+                                                        <th>Ph</th>
+                                                        <th>Nama Tanaman Rekomendasi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                 <?php $no = 1;?>
-                                                @foreach ($Tanaman as $data)
+                                                @foreach ($lahanku as $data)
                                                     <tr>
                                                         <td class="text-center">{{ $no++ }}</td>
-                                                        <td>{{ $data->nama_tanaman }}</td>
-                                                        {{-- <td>{{ $data->luas_lahan }}</td> --}}
-                                                        <td>{{ $data->luas_panen }}</td>
-                                                        <td>{{ $data->produksi }}</td>
-                                                        <td>{{ $data->produktivitas }}</td>
+                                                        <td>{{ $data['nama_lahan'] }}</td>
+                                                        <td>{{ $data['avg_suhu_lahan'] }}</td>
+                                                        <td>{{ $data['avg_ph_lahan'] }}</td>
+                                                        <td>{{ $data['nama'] }}</td>
                                                         
                                                     
                                                     </tr>
@@ -244,5 +254,9 @@
         <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('admin') }}/assets/demo/date-range-picker-demo.js"></script>
+        <script>
+           
+          
+        </script>
     </body>
 </html>

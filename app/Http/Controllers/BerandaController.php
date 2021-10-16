@@ -46,6 +46,10 @@ class BerandaController extends Controller
     // }
     public function lahan_detail($id)
     {
+
+        // $data = file_get_contents("https://spk.devliffe.com/API/output_api?id_kecamatan=27");
+        $json_url = "https://spk.devliffe.com/API/output_api?id_kecamatan=${id}";
+        $json = file_get_contents($json_url);
         $data = [
             'kecamatan' => $this->DataKecamatanModel->DataKecamatan(),
             'detail' => $this->DataKecamatanModel->DetailKecamatan($id),
@@ -59,8 +63,18 @@ class BerandaController extends Controller
             'totalch' => $this->DataKecamatanModel->totalch($id),
             'totalsuhu' => $this->DataKecamatanModel->totalsuhu($id),
             'totaldata' => $this->DataKecamatanModel->totaldata($id),
+            'lahanku' => json_decode($json, true)
         ];
         return view('layouts.datalahan', $data);
-        // echo json_encode($data);
+
+
+
+        // // echo "<pre>";
+        // print_r($data);
+        // // echo "</pre>";
+        // // echo array($key);
+        // foreach ($data as $key) {
+        //     echo json_encode($key['nama_lahan']);
+        // }
     }
 }

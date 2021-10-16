@@ -32,6 +32,11 @@
                 <ul class="navbar-nav align-items-center ml-auto">
                     @yield('head')
                     <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
+                        <a class="nav-link" id="navbarDropdownDocs" href="https://spk.devliffe.com">
+                            <div class="d-none d-md-inline font-weight-500">{{ __('DSS') }}</div>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
                         <a class="nav-link" id="navbarDropdownDocs" href="#map">
                             <div class="d-none d-md-inline font-weight-500">{{ __('Peta Jember') }}</div>
                         </a>
