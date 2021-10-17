@@ -75,7 +75,7 @@
                             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
                                 <div class="card">
                                     <div class="card-header">
-                                        Detail Data Kecamatan
+                                        Data Badan Pusat Statistik
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -84,11 +84,10 @@
                                                     <div class="col-12">
                                                         <ul class="list-unstyled">
                                                             {{-- <li class="pb-2"><strong>Luas Lahan: </strong> {{ $LuasLahan }} Ha</li> --}}
-                                                         
-                                                            <li class="pb-2"><strong>Luas Panen: </strong> {{ $LuasPanen }} Ha</li>
-                                                            <li class="pb-2"><strong>Produksi: </strong> {{ $Produksi }} ton</li>
-                                                            <li class="pb-2"><strong>Produktivitas: </strong> {{ $Produktivitas }} Kw/Ha</li>
-                                                            <hr>
+                                                            <li class="pb-2"><strong>Total Luas Panen: </strong> {{ $LuasPanen }} Ha</li>
+                                                            <li class="pb-2"><strong>Total Produksi: </strong> {{ $Produksi }} ton</li>
+                                                            <li class="pb-2"><strong>Total Produktivitas: </strong> {{ $Produktivitas }} Kw/Ha</li>
+                                                            {{-- <hr> --}}
                                                             {{-- <li class="pb-2"><strong>Suhu Rata-Rata: </strong>25.99 °C</li>
                                                             <li class="pb-2"><strong>pH Tanah: </strong>7.20</li>
                                                             <li class="pb-2"><strong>Drainase: </strong>Baik</li>
@@ -123,9 +122,11 @@
                                         <div class="align-items-center">
                                             <div id="map"></div>
                                             <style>
-                                                #map { width: 100%; height: 60vh; }
-                                                .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
-                                                .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+                                                #map { width: 100%; height: 50vh; }
+                                                .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; }
+                                                .info h4 { margin: 0 0 5px; color: #777; }
+                                                .legend { text-align: left; line-height: 18px; color: #555; }
+                                                .legend i { width: 16px; height: 16px; float: left; margin-right: 8px; opacity: 0.7; }
                                             </style>
                                             <script>
                                                 var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
@@ -173,10 +174,7 @@
                                                 }
 
                                                 var legend = L.control({position: 'bottomright'});
-                                              
 // ########## LEGEND ########## //
-
-
                                                 // fetch('https://spk.devliffe.com/API/output_api?id_kecamatan=27')
                                                 //                 .then(response => console.log(response))
                                                 //                 .then(data => console.log(data));
@@ -191,7 +189,7 @@
                             <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
                                 <div class="card card-header-actions mx-auto">
                                     <div class="card-header">
-                                        Data Badan Pusat Statistik
+                                        Data Lahan
                                     </div>
                                     <div class="card-body">
                                         <div class="datatable table-responsive">
@@ -203,7 +201,7 @@
                                                         {{-- <th>Luas Lahan (Ha)</th> --}}
                                                         <th>Suhu</th>
                                                         <th>Ph</th>
-                                                        <th>Nama Tanaman Rekomendasi</th>
+                                                        <th>Rekomendasi Tanaman Pangan</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -215,8 +213,6 @@
                                                         <td>{{ $data['avg_suhu_lahan'] }}</td>
                                                         <td>{{ $data['avg_ph_lahan'] }}</td>
                                                         <td>{{ $data['nama'] }}</td>
-                                                        
-                                                    
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -254,9 +250,5 @@
         <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('admin') }}/assets/demo/date-range-picker-demo.js"></script>
-        <script>
-           
-          
-        </script>
     </body>
 </html>
